@@ -1,0 +1,22 @@
+{
+  "name": "ihamster-server-prototype",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reactor13/iHamsterServerPrototype.git"
+  },
+  "author": "Oleg Korchagin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Reactor13/iHamsterServerPrototype/issues"
+  },
+  "homepage": "https://github.com/Reactor13/iHamsterServerPrototype#readme",
+  "dependencies": {
+    "mongodb": "^2.2.30"
+  }
+}
