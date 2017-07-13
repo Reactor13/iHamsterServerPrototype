@@ -26,11 +26,14 @@ var appServer = new http.Server(function(req,res)
         req.on('data', function (data) {requestPostData += data; if (requestPostData.length > 1e6) {req.connection.destroy()}});
         req.on('end',  function () 
 		{
-            requestPostData = qs.parse(requestPostData)
+            requestPostData = qs.parse(requestPostData)			
 			switch (urlParsed.pathname)
 			{
 				case "/api/createUser":
 					api.createUser(requestPostData, function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/saveProducts":
+					api.saveProducts(requestPostData, function(err, answer) {answerServer(err, answer)})
 					break;
 				default:
 					answerServer(404,'[ERROR] Incorrect request')
@@ -47,11 +50,11 @@ var appServer = new http.Server(function(req,res)
 			case "/":
 				fs.readFile('./templates/server-hello.txt', {encoding: 'utf-8'}, function(err, data){
 					if (err) throw err
-					answerServer(err, data + 'Server, version: ' + serverConfig.serverVersion)
+					answerServer(err, data + 'Server, version: ' + serverConfig.serverVersion , 'text')
 				})
 				break;
 			case "/api/echo":
-				if (urlParsed.query.message!=null) {answerServer(null, 'Echo: ' + urlParsed.query.message)}
+				if (urlParsed.query.message!=null) {answerServer(null, 'Echo: ' + urlParsed.query.message, 'text')}
 				else                               {answerServer(403,  'There is no echo message...')}
 				break;
 			case "/api/getUsers":
@@ -66,9 +69,10 @@ var appServer = new http.Server(function(req,res)
 		}
 	}
 	
-	// Функция вызывает ответ сервер
-	function answerServer(err, answer)
+	// Функция возвращает ответ сервер
+	function answerServer(err, answer, contentType)
 	{
+		var headers
 		if (err)
 		{
 			switch (err)
@@ -76,11 +80,22 @@ var appServer = new http.Server(function(req,res)
 				case 403: res.statusCode = 403; break;		
 				default:  res.statusCode = 404; break;
 			}
+			res.writeHead(res.statusCode, {'Content-Type': 'text/html; charset=utf-8', 'Access-Control-Allow-Origin':'*'})
 			res.end(answer)	
 		}
 		else
 		{
-			res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin':'*'})
+			switch (contentType)
+			{
+				case "text":
+					headers = {'Content-Type': 'text/html; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
+					break;
+				default:
+					headers = {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
+					break;
+			}
+		
+			res.writeHead(200, headers)
 			res.end(answer)
 		}
 	}

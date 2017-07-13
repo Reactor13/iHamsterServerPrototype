@@ -6,6 +6,7 @@ exports.createUser         = createUser
 exports.getDefaultProducts = getDefaultProducts
 exports.getUsers           = getUsers
 exports.createUser         = createUser
+exports.saveProducts       = saveProducts
 
 function getDefaultProducts(callback)
 {
@@ -45,15 +46,12 @@ function getUsers(callback)
 
 function createUser(newUser,callback)
 {
-	// Валидация данных JSON
-	try         {var jsonData = JSON.parse(newUser.json)}
-	catch (err) {return callback(403, 'Invalid JSON ' + err)}
+	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
 	
 	console.log(' ')
 	console.log('[API] createUser function')
-	console.log('[API] ... ' + newUser.email)
-	console.log('[API] ... ' + newUser.password)
-	console.log('[API] ... ' + JSON.stringify(jsonData))
+	console.log('[API] ... email:'    + newUser.email)
+	console.log('[API] ... password:' + newUser.password)	
 	
 	// Валидация пароля
 	if (!newUser.password) 			                      return callback(403, 'Password is require')
@@ -98,6 +96,41 @@ function createUser(newUser,callback)
 						return callback(null, JSON.stringify(answer))
 					}
 				})
+			}
+		}
+	})
+}
+
+function saveProducts(productsData,callback)
+{
+	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
+	
+	// Валидация данных JSON
+	try         {var jsonData = JSON.parse(productsData.json)}
+	catch (err) {return callback(403, 'Invalid JSON ' + err)}
+	
+	// Валидация наличия токета
+	if (!productsData.token) return callback(403, 'User token is require')
+	
+	var User = require('../models/user').User
+	User.findOne({'token': productsData.token }, function(err, user)
+	{
+		if (err) {return callback(500, 'Error in Database')}
+		else
+		{
+			if (user)
+			{
+				user.saveProducts(jsonData, function(err, results)
+				{
+					console.log('[API] ... Products saved')
+					var answer = {status: 'Products saved', create: results.productsCreated, update: results.productsUpdated, total: results.totalProducts}
+					return callback(null, JSON.stringify(answer))
+				})			
+			}
+			else				
+			{
+				console.log('[API] ... User with this token not found')
+				return callback(403, 'User with this token not found')
 			}
 		}
 	})

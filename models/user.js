@@ -79,6 +79,40 @@ schema.methods.generateToken = function()
 	return
 }
 
+schema.methods.saveProducts = function(productsData,callback)
+{
+	var productsCreated = 0
+	var productsUpdated = 0
+	var flagUpdated     = false
+	var i,j,k	
+
+	for(i in productsData)
+	{
+		flagUpdated = false
+		for (j in this.dictionary.products)
+		{	
+			if (isNaN(j)) break;			
+			if (productsData[i].id == this.dictionary.products[j].id)
+			{
+				console.log ("[USER] ---> Update product " + productsData[i].id)
+				productsUpdated ++								
+				flagUpdated = true
+				this.dictionary.products[j] = productsData[i]
+				break;
+			}
+		}
+		if (!flagUpdated)
+		{
+			console.log ("[USER] ---> Create product " + productsData[i].id)
+			productsCreated ++
+			this.dictionary.products[this.dictionary.products.length++] = productsData[i]
+		}
+	}
+	
+	this.save()
+	return callback(null, {productsCreated:productsCreated,productsUpdated:productsUpdated,totalProducts:this.dictionary.products.length})
+}
+
 schema.virtual('password')
 	.set(function(passord){
 		this._plainPassword = passord
@@ -92,3 +126,5 @@ schema.methods.checkPassword = function(passord){
 }
 	
 exports.User = mongoose.model('User',schema)
+
+//function 
