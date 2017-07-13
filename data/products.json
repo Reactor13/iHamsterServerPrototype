@@ -1,0 +1,3273 @@
+﻿[{
+		"id": "id_ogurets_sol",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 10,
+		"name": {
+			"ru": "Огурцы (сол)"
+		},
+		"price": {
+			"RUS": 110
+		}
+	}, {
+		"id": "id_keta_konserv",
+		"category": "id_tin_fish",
+		"calories": 125,
+		"name": {
+			"ru": "Кета (консерв)"
+		},
+		"price": {
+			"RUS": 100
+		}
+	}, {
+		"id": "id_sausages",
+		"category": "id_meat",
+		"calories": 350,
+		"name": {
+			"ru": "Сосиски",
+			"en": "Sausages"
+		},
+		"price": {
+			"GBR": 2.5,
+			"RUS": 140
+		}
+	}, {
+		"id": "id_mackerel",
+		"category": "id_fish_seafood",
+		"calories": 190,
+		"name": {
+			"ru": "Скумбрия",
+			"en": "Mackerel"
+		},
+		"price": {
+			"GBR": 10,
+			"RUS": 300
+		}
+	}, {
+		"id": "id_dill",
+		"category": "id_greens_salads",
+		"calories": 40,
+		"name": {
+			"ru": "Укроп",
+			"en": "Dill"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 30
+		}
+	}, {
+		"id": "id_pilchards_in_tomato_sauce",
+		"category": "id_tin_fish",
+		"calories": 180,
+		"name": {
+			"ru": "Сардина (консерв)",
+			"en": "Pilchards In Tomato Sauce"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 60
+		}
+	}, {
+		"id": "id_sayra_konserv",
+		"category": "id_tin_fish",
+		"calories": 300,
+		"name": {
+			"ru": "Сайра (консерв)"
+		},
+		"price": {
+			"RUS": 120
+		}
+	}, {
+		"id": "id_apricot",
+		"category": "id_fruit_berry",
+		"calories": 44,
+		"name": {
+			"ru": "Абрикосы",
+			"en": "Apricot"
+		},
+		"price": {
+			"GBR": 0.2,
+			"RUS": 200
+		}
+	}, {
+		"id": "id_ikra_moyvj",
+		"category": "id_fish_seafood",
+		"calories": 400,
+		"name": {
+			"ru": "Икра мойвы"
+		},
+		"price": {
+			"RUS": 110
+		}
+	}, {
+		"id": "id_psheno",
+		"category": "id_food_cupboard",
+		"calories": 348,
+		"name": {
+			"ru": "Пшено"
+		},
+		"price": {
+			"RUS": 55
+		}
+	}, {
+		"id": "id_strawberry",
+		"category": "id_fruit_berry",
+		"calories": 42,
+		"name": {
+			"ru": "Клубника",
+			"en": "Strawberry"
+		},
+		"price": {
+			"GBR": 6,
+			"RUS": 400
+		}
+	}, {
+		"id": "id_squid",
+		"category": "id_fish_seafood",
+		"calories": 100,
+		"name": {
+			"ru": "Кальмар",
+			"en": "Squid"
+		},
+		"price": {
+			"GBR": 4,
+			"RUS": 470
+		}
+	}, {
+		"id": "id_pancakes",
+		"category": "id_bakery",
+		"calories": 284,
+		"name": {
+			"en": "Pancakes"
+		},
+		"price": {
+			"GBR": 2
+		}
+	}, {
+		"id": "id_pasta",
+		"category": "id_food_cupboard",
+		"calories": 350,
+		"name": {
+			"ru": "Макароны",
+			"en": "Pasta"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 70
+		}
+	}, {
+		"id": "id_watermelon",
+		"category": "id_fruit_berry",
+		"calories": 27,
+		"name": {
+			"ru": "Арбуз",
+			"en": "Watermelon"
+		},
+		"price": {
+			"GBR": 2.5,
+			"RUS": 180
+		}
+	}, {
+		"id": "id_pistachio",
+		"category": "id_dried_fruits_nuts",
+		"calories": 556,
+		"name": {
+			"ru": "Фисташки",
+			"en": "Pistachio"
+		},
+		"price": {
+			"GBR": 1.8,
+			"RUS": 380
+		}
+	}, {
+		"id": "id_suhariki",
+		"category": "id_food_cupboard",
+		"calories": 400,
+		"name": {
+			"ru": "Сухарики"
+		},
+		"price": {
+			"RUS": 15
+		}
+	}, {
+		"id": "id_kabachki",
+		"category": "id_vegetables",
+		"calories": 24,
+		"name": {
+			"ru": "Кабачки"
+		},
+		"price": {
+			"RUS": 140
+		}
+	}, {
+		"id": "id_smoked_salmon",
+		"category": "id_fish_seafood",
+		"calories": 290,
+		"name": {
+			"ru": "Семга хол/копч",
+			"en": "Smoked Salmon"
+		},
+		"price": {
+			"GBR": 5.5,
+			"RUS": 275
+		}
+	}, {
+		"id": "id_nectarine",
+		"category": "id_fruit_berry",
+		"calories": 48,
+		"name": {
+			"ru": "Нектарины",
+			"en": "Nectarine"
+		},
+		"price": {
+			"GBR": 0.4,
+			"RUS": 300
+		}
+	}, {
+		"id": "id_cheesecake",
+		"category": "id_bakery",
+		"calories": 240,
+		"name": {
+			"ru": "Чиз-кейк",
+			"en": "Cheesecake"
+		},
+		"price": {
+			"GBR": 4,
+			"RUS": 180
+		}
+	}, {
+		"id": "id_rosemary",
+		"category": "id_greens_salads",
+		"calories": 131,
+		"name": {
+			"ru": "Розмарин",
+			"en": "Rosemary"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 50
+		}
+	}, {
+		"id": "id_syrup",
+		"category": "id_tin_fruit",
+		"calories": 220,
+		"name": {
+			"ru": "Сироп",
+			"en": "Syrup"
+		},
+		"price": {
+			"GBR": 5,
+			"RUS": 60
+		}
+	}, {
+		"id": "id_spinach",
+		"category": "id_greens_salads",
+		"calories": 23,
+		"name": {
+			"ru": "Шпинат",
+			"en": "Spinach"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 40
+		}
+	}, {
+		"id": "id_varenje",
+		"category": "id_tin_fruit",
+		"calories": 270,
+		"name": {
+			"ru": "Варенье"
+		},
+		"price": {
+			"RUS": 170
+		}
+	}, {
+		"id": "id_chicken_drumstick",
+		"category": "id_meat",
+		"calories": 200,
+		"name": {
+			"ru": "Курица (голень)",
+			"en": "Chicken (drumstick)"
+		},
+		"price": {
+			"GBR": 2.5,
+			"RUS": 240
+		}
+	}, {
+		"id": "id_serdechki_kurinje",
+		"category": "id_meat",
+		"calories": 150,
+		"name": {
+			"ru": "Сердечки куриные"
+		},
+		"price": {
+			"RUS": 360
+		}
+	}, {
+		"id": "id_lipton",
+		"category": "id_potables",
+		"calories": 30,
+		"name": {
+			"ru": "Lipton|Липтон",
+			"en": "Lipton"
+		},
+		"price": {
+			"GBR": 1.6,
+			"RUS": 55
+		}
+	}, {
+		"id": "id_lamb_kebabs",
+		"category": "id_meat",
+		"calories": 236,
+		"name": {
+			"en": "Lamb Kebabs"
+		},
+		"price": {
+			"GBR": 4
+		}
+	}, {
+		"id": "id_syrok_glazirovanny",
+		"category": "id_dairy",
+		"calories": 400,
+		"name": {
+			"ru": "Сырок глазированный"
+		},
+		"price": {
+			"RUS": 15
+		}
+	}, {
+		"id": "id_beet",
+		"category": "id_vegetables",
+		"calories": 50,
+		"name": {
+			"ru": "Свекла",
+			"en": "Beet"
+		},
+		"price": {
+			"GBR": 2.6,
+			"RUS": 35
+		}
+	}, {
+		"id": "id_tortilla",
+		"category": "id_food_cupboard",
+		"calories": 500,
+		"name": {
+			"en": "Tortilla"
+		},
+		"price": {
+			"GBR": 2
+		}
+	}, {
+		"id": "id_dates",
+		"category": "id_dried_fruits_nuts",
+		"calories": 292,
+		"name": {
+			"ru": "Финики",
+			"en": "Dates"
+		},
+		"price": {
+			"GBR": 2,
+			"RUS": 70
+		}
+	}, {
+		"id": "id_rebrjshki_k_v",
+		"category": "id_meat",
+		"calories": 240,
+		"name": {
+			"ru": "Ребрышки к/в"
+		},
+		"price": {
+			"RUS": 370
+		}
+	}, {
+		"id": "id_korzhik",
+		"category": "id_bakery",
+		"calories": 360,
+		"name": {
+			"ru": "Коржик"
+		},
+		"price": {
+			"RUS": 25
+		}
+	}, {
+		"id": "id_ikra_kabachok",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 97,
+		"name": {
+			"ru": "Икра кабачковая"
+		},
+		"price": {
+			"RUS": 100
+		}
+	}, {
+		"id": "id_hlebtsj",
+		"category": "id_bakery",
+		"calories": 310,
+		"name": {
+			"ru": "Хлебцы"
+		},
+		"price": {
+			"RUS": 40
+		}
+	}, {
+		"id": "id_sochnik",
+		"category": "id_bakery",
+		"calories": 400,
+		"name": {
+			"ru": "Сочник"
+		},
+		"price": {
+			"RUS": 35
+		}
+	}, {
+		"id": "id_kasha_grechnevaya_s_govyadinoy_konserv",
+		"category": "id_tin_meat",
+		"calories": 200,
+		"name": {
+			"ru": "Каша гречневая с говядиной (консерв)"
+		},
+		"price": {
+			"RUS": 40
+		}
+	}, {
+		"id": "id_peach",
+		"category": "id_fruit_berry",
+		"calories": 45,
+		"name": {
+			"ru": "Персики",
+			"en": "Peach"
+		},
+		"price": {
+			"GBR": 0.4,
+			"RUS": 300
+		}
+	}, {
+		"id": "id_pumpkin",
+		"category": "id_vegetables",
+		"calories": 22,
+		"name": {
+			"ru": "Тыква",
+			"en": "Pumpkin"
+		},
+		"price": {
+			"RUS": 40
+		}
+	}, {
+		"id": "id_grapefruit_in_juice",
+		"category": "id_tin_fruit",
+		"calories": 32,
+		"name": {
+			"en": "Grapefruit In Juice"
+		},
+		"price": {
+			"GBR": 0.8
+		}
+	}, {
+		"id": "id_mors",
+		"category": "id_potables",
+		"calories": 40,
+		"name": {
+			"ru": "Морс"
+		},
+		"price": {
+			"RUS": 90
+		}
+	}, {
+		"id": "id_hlopya_pshenichnje",
+		"category": "id_food_cupboard",
+		"calories": 390,
+		"name": {
+			"ru": "Хлопья пшеничные"
+		},
+		"price": {
+			"RUS": 150
+		}
+	}, {
+		"id": "id_crumpets",
+		"category": "id_bakery",
+		"calories": 183,
+		"name": {
+			"en": "Crumpets"
+		},
+		"price": {
+			"GBR": 0.5
+		}
+	}, {
+		"id": "id_biscuit",
+		"category": "id_bakery",
+		"calories": 480,
+		"name": {
+			"ru": "Печенье",
+			"en": "Biscuit"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 35
+		}
+	}, {
+		"id": "id_pineapple",
+		"category": "id_fruit_berry",
+		"calories": 52,
+		"name": {
+			"ru": "Ананас",
+			"en": "Pineapple"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 230
+		}
+	}, {
+		"id": "id_melon",
+		"category": "id_fruit_berry",
+		"calories": 35,
+		"name": {
+			"ru": "Дыня",
+			"en": "Melon"
+		},
+		"price": {
+			"GBR": 1.8,
+			"RUS": 215
+		}
+	}, {
+		"id": "id_sardelki",
+		"category": "id_meat",
+		"calories": 220,
+		"name": {
+			"ru": "Сардельки"
+		},
+		"price": {
+			"RUS": 310
+		}
+	}, {
+		"id": "id_cucumbers_tin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 20,
+		"name": {
+			"ru": "Огурцы (марин)",
+			"en": "Cucumbers (tin)"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 160
+		}
+	}, {
+		"id": "id_garlic",
+		"category": "id_greens_salads",
+		"calories": 143,
+		"name": {
+			"ru": "Чеснок",
+			"en": "Garlic"
+		},
+		"price": {
+			"GBR": 0.3,
+			"RUS": 200
+		}
+	}, {
+		"id": "id_morskaya_kapusta_konserv",
+		"category": "id_tin_fish",
+		"calories": 120,
+		"name": {
+			"ru": "Морская капуста (консерв)"
+		},
+		"price": {
+			"RUS": 30
+		}
+	}, {
+		"id": "id_sahar_trosnikovjy",
+		"category": "id_food_cupboard",
+		"calories": 400,
+		"name": {
+			"ru": "Сахар тросниковый"
+		},
+		"price": {
+			"RUS": 220
+		}
+	}, {
+		"id": "id_jam",
+		"category": "id_tin_fruit",
+		"calories": 230,
+		"name": {
+			"ru": "Джем",
+			"en": "Jam"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 240
+		}
+	}, {
+		"id": "id_pomelo",
+		"category": "id_fruit_berry",
+		"calories": 31,
+		"name": {
+			"ru": "Помело"
+		},
+		"price": {
+			"RUS": 180
+		}
+	}, {
+		"id": "id_salmon",
+		"category": "id_fish_seafood",
+		"calories": 150,
+		"name": {
+			"ru": "Лосось",
+			"en": "Salmon"
+		},
+		"price": {
+			"GBR": 2.4,
+			"RUS": 900
+		}
+	}, {
+		"id": "id_chinese_cabbage_salad",
+		"category": "id_greens_salads",
+		"calories": 16,
+		"name": {
+			"ru": "Капуста китайская (салат)",
+			"en": "Chinese cabbage (salad)"
+		},
+		"price": {
+			"GBR": 1.3,
+			"RUS": 130
+		}
+	}, {
+		"id": "id_ham",
+		"category": "id_meat",
+		"calories": 140,
+		"name": {
+			"ru": "Ветчина",
+			"en": "Ham"
+		},
+		"price": {
+			"GBR": 3,
+			"RUS": 170
+		}
+	}, {
+		"id": "id_opyata_marin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 32,
+		"name": {
+			"ru": "Опята (марин)"
+		},
+		"price": {
+			"RUS": 215
+		}
+	}, {
+		"id": "id_sunflower_seeds",
+		"category": "id_dried_fruits_nuts",
+		"calories": 578,
+		"name": {
+			"ru": "Семечки (подсолнечника)",
+			"en": "Sunflower seeds"
+		},
+		"price": {
+			"GBR": 1.3,
+			"RUS": 25
+		}
+	}, {
+		"id": "id_milk",
+		"category": "id_dairy",
+		"calories": 60,
+		"name": {
+			"ru": "Молоко",
+			"en": "Milk"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 80
+		}
+	}, {
+		"id": "id_cabbage",
+		"category": "id_vegetables",
+		"calories": 28,
+		"name": {
+			"ru": "Капуста",
+			"en": "Cabbage"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 40
+		}
+	}, {
+		"id": "id_lentils",
+		"category": "id_food_cupboard",
+		"calories": 111,
+		"name": {
+			"ru": "Чечевица",
+			"en": "Lentils"
+		},
+		"price": {
+			"GBR": 1.9,
+			"RUS": 71
+		}
+	}, {
+		"id": "id_butter",
+		"category": "id_dairy",
+		"calories": 662,
+		"name": {
+			"ru": "Масло сливочное",
+			"en": "Butter"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 110
+		}
+	}, {
+		"id": "id_eggplant",
+		"category": "id_vegetables",
+		"calories": 24,
+		"name": {
+			"ru": "Баклажаны",
+			"en": "Eggplant"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 230
+		}
+	}, {
+		"id": "id_yogurt",
+		"category": "id_dairy",
+		"calories": 131,
+		"name": {
+			"ru": "Йогурт",
+			"en": "Yogurt"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 40
+		}
+	}, {
+		"id": "id_egg",
+		"category": "id_dairy",
+		"calories": 157,
+		"name": {
+			"ru": "Яйцо",
+			"en": "Egg"
+		},
+		"price": {
+			"GBR": 1.8,
+			"RUS": 100
+		}
+	}, {
+		"id": "id_heart",
+		"category": "id_meat",
+		"calories": 96,
+		"name": {
+			"ru": "Сердце",
+			"en": "Heart"
+		},
+		"price": {
+			"GBR": 2.1,
+			"RUS": 270
+		}
+	}, {
+		"id": "id_grapefruit",
+		"category": "id_fruit_berry",
+		"calories": 35,
+		"name": {
+			"ru": "Грейпфрут",
+			"en": "Grapefruit"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 110
+		}
+	}, {
+		"id": "id_pomidor",
+		"category": "id_vegetables",
+		"calories": 20,
+		"name": {
+			"ru": "Помидоры"
+		},
+		"price": {
+			"RUS": 170
+		}
+	}, {
+		"id": "id_mince",
+		"category": "id_meat",
+		"calories": 350,
+		"name": {
+			"ru": "Фарш",
+			"en": "Mince"
+		},
+		"price": {
+			"GBR": 4,
+			"RUS": 180
+		}
+	}, {
+		"id": "id_cottage_cheese",
+		"category": "id_dairy",
+		"calories": 157,
+		"name": {
+			"ru": "Творог",
+			"en": "Cottage cheese"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 90
+		}
+	}, {
+		"id": "id_zheludochki_kurinje",
+		"category": "id_meat",
+		"calories": 140,
+		"name": {
+			"ru": "Желудочки куриные"
+		},
+		"price": {
+			"RUS": 150
+		}
+	}, {
+		"id": "id_salami",
+		"category": "id_meat",
+		"calories": 347,
+		"name": {
+			"en": "Salami"
+		},
+		"price": {
+			"GBR": 1.7
+		}
+	}, {
+		"id": "id_waffles",
+		"category": "id_bakery",
+		"calories": 500,
+		"name": {
+			"ru": "Вафли",
+			"en": "Waffles"
+		},
+		"price": {
+			"GBR": 1.2,
+			"RUS": 40
+		}
+	}, {
+		"id": "id_thyme",
+		"category": "id_greens_salads",
+		"calories": 101,
+		"name": {
+			"ru": "Тимьян",
+			"en": "Thyme"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 50
+		}
+	}, {
+		"id": "id_rolton",
+		"category": "id_food_cupboard",
+		"calories": 440,
+		"name": {
+			"ru": "Ролтон"
+		},
+		"price": {
+			"RUS": 13
+		}
+	}, {
+		"id": "id_pearl_barley",
+		"category": "id_food_cupboard",
+		"calories": 320,
+		"name": {
+			"ru": "Крупа Перловая|Перловка",
+			"en": "Pearl barley"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 35
+		}
+	}, {
+		"id": "id_sea_bass",
+		"category": "id_fish_seafood",
+		"calories": 100,
+		"name": {
+			"ru": "Сибас",
+			"en": "Sea Bass"
+		},
+		"price": {
+			"GBR": 4,
+			"RUS": 520
+		}
+	}, {
+		"id": "id_walnut",
+		"category": "id_dried_fruits_nuts",
+		"calories": 654,
+		"name": {
+			"ru": "Грецкий орех",
+			"en": "Walnut"
+		},
+		"price": {
+			"GBR": 2.4,
+			"RUS": 460
+		}
+	}, {
+		"id": "id_pear_in_juice",
+		"category": "id_tin_fruit",
+		"calories": 46,
+		"name": {
+			"en": "Pear In Juice"
+		},
+		"price": {
+			"GBR": 1.1
+		}
+	}, {
+		"id": "id_mandarin",
+		"category": "id_fruit_berry",
+		"calories": 38,
+		"name": {
+			"ru": "Мандарины",
+			"en": "Mandarin"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 160
+		}
+	}, {
+		"id": "id_oats",
+		"category": "id_food_cupboard",
+		"calories": 88,
+		"name": {
+			"ru": "Каша овсяная",
+			"en": "Oats"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 96
+		}
+	}, {
+		"id": "id_krolik",
+		"category": "id_meat",
+		"calories": 156,
+		"name": {
+			"ru": "Кролик"
+		},
+		"price": {
+			"RUS": 450
+		}
+	}, {
+		"id": "id_utka",
+		"category": "id_meat",
+		"calories": 308,
+		"name": {
+			"ru": "Утка"
+		},
+		"price": {
+			"RUS": 270
+		}
+	}, {
+		"id": "id_suhari",
+		"category": "id_bakery",
+		"calories": 410,
+		"name": {
+			"ru": "Сухари"
+		},
+		"price": {
+			"RUS": 70
+		}
+	}, {
+		"id": "id_kvas",
+		"category": "id_potables",
+		"calories": 35,
+		"name": {
+			"ru": "Квас"
+		},
+		"price": {
+			"RUS": 40
+		}
+	}, {
+		"id": "id_kuritsa_grudka",
+		"category": "id_meat",
+		"calories": 170,
+		"name": {
+			"ru": "Курица (грудка)"
+		},
+		"price": {
+			"RUS": 230
+		}
+	}, {
+		"id": "id_tea",
+		"category": "id_potables",
+		"calories": 4,
+		"name": {
+			"ru": "Чай",
+			"en": "Tea"
+		},
+		"price": {
+			"GBR": 2,
+			"RUS": 330
+		}
+	}, {
+		"id": "id_pomegranate",
+		"category": "id_fruit_berry",
+		"calories": 72,
+		"name": {
+			"ru": "Гранат",
+			"en": "Pomegranate"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 250
+		}
+	}, {
+		"id": "id_keks",
+		"category": "id_bakery",
+		"calories": 360,
+		"name": {
+			"ru": "Кекс"
+		},
+		"price": {
+			"RUS": 120
+		}
+	}, {
+		"id": "id_spaghetti",
+		"category": "id_food_cupboard",
+		"calories": 350,
+		"name": {
+			"ru": "Спагетти",
+			"en": "Spaghetti"
+		},
+		"price": {
+			"GBR": 0.2,
+			"RUS": 30
+		}
+	}, {
+		"id": "id_corn",
+		"category": "id_vegetables",
+		"calories": 123,
+		"name": {
+			"ru": "Кукуруза",
+			"en": "Corn"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 150
+		}
+	}, {
+		"id": "id_pastries",
+		"category": "id_bakery",
+		"calories": 310,
+		"name": {
+			"ru": "Улитка",
+			"en": "Pastries"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 35
+		}
+	}, {
+		"id": "id_raspberries",
+		"category": "id_fruit_berry",
+		"calories": 46,
+		"name": {
+			"ru": "Малина",
+			"en": "Raspberries"
+		},
+		"price": {
+			"GBR": 13,
+			"RUS": 320
+		}
+	}, {
+		"id": "id_sguschenka_varenay",
+		"category": "id_dairy",
+		"calories": 330,
+		"name": {
+			"ru": "Сгущенка вареная"
+		},
+		"price": {
+			"RUS": 80
+		}
+	}, {
+		"id": "id_tvorozhennay_massa",
+		"category": "id_dairy",
+		"calories": 344,
+		"name": {
+			"ru": "Твороженная масса"
+		},
+		"price": {
+			"RUS": 60
+		}
+	}, {
+		"id": "id_smoked_sausage",
+		"category": "id_meat",
+		"calories": 400,
+		"name": {
+			"ru": "Колбаса копченая",
+			"en": "Smoked sausage"
+		},
+		"price": {
+			"GBR": 1.9,
+			"RUS": 135
+		}
+	}, {
+		"id": "id_schweppes",
+		"category": "id_potables",
+		"calories": 38,
+		"name": {
+			"ru": "Schweppes|Швепс",
+			"en": "Schweppes"
+		},
+		"price": {
+			"GBR": 1.3,
+			"RUS": 78
+		}
+	}, {
+		"id": "id_ikra_baklagan",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 120,
+		"name": {
+			"ru": "Икра баклажановая"
+		},
+		"price": {
+			"RUS": 70
+		}
+	}, {
+		"id": "id_plum",
+		"category": "id_fruit_berry",
+		"calories": 42,
+		"name": {
+			"ru": "Сливы",
+			"en": "Plum"
+		},
+		"price": {
+			"GBR": 2,
+			"RUS": 190
+		}
+	}, {
+		"id": "id_kompot",
+		"category": "id_tin_fruit",
+		"calories": 70,
+		"name": {
+			"ru": "Компот"
+		},
+		"price": {
+			"RUS": 190
+		}
+	}, {
+		"id": "id_nestea",
+		"category": "id_potables",
+		"calories": 30,
+		"name": {
+			"ru": "Nestea|Нести"
+		},
+		"price": {
+			"RUS": 55
+		}
+	}, {
+		"id": "id_celery",
+		"category": "id_greens_salads",
+		"calories": 13,
+		"name": {
+			"ru": "Селдерей",
+			"en": "Celery"
+		},
+		"price": {
+			"GBR": 1.2,
+			"RUS": 90
+		}
+	}, {
+		"id": "id_Anchovy (tin)",
+		"category": "id_tin_fish",
+		"calories": 220,
+		"name": {
+			"en": "Anchovy (tin)"
+		},
+		"price": {
+			"GBR": 0.7
+		}
+	}, {
+		"id": "id_pate",
+		"category": "id_meat",
+		"calories": 210,
+		"name": {
+			"ru": "Паштет",
+			"en": "Pate"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 45
+		}
+	}, {
+		"id": "id_tan",
+		"category": "id_dairy",
+		"calories": 20,
+		"name": {
+			"ru": "Тан"
+		},
+		"price": {
+			"RUS": 40
+		}
+	}, {
+		"id": "id_maslyata_marin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 16,
+		"name": {
+			"ru": "Маслята (марин)"
+		},
+		"price": {
+			"RUS": 180
+		}
+	}, {
+		"id": "id_moloko_sguschenoe",
+		"category": "id_dairy",
+		"calories": 330,
+		"name": {
+			"ru": "Молоко сгущеное"
+		},
+		"price": {
+			"RUS": 77
+		}
+	}, {
+		"id": "id_ginger",
+		"category": "id_greens_salads",
+		"calories": 80,
+		"name": {
+			"ru": "Имбирь",
+			"en": "Ginger"
+		},
+		"price": {
+			"GBR": 2.7,
+			"RUS": 220
+		}
+	}, {
+		"id": "id_dyushes",
+		"category": "id_potables",
+		"calories": 35,
+		"name": {
+			"ru": "Дюшес"
+		},
+		"price": {
+			"RUS": 65
+		}
+	}, {
+		"id": "id_mango_in_juice",
+		"category": "id_tin_fruit",
+		"calories": 46,
+		"name": {
+			"en": "Mango In Juice"
+		},
+		"price": {
+			"GBR": 1
+		}
+	}, {
+		"id": "id_sayra",
+		"category": "id_fish_seafood",
+		"calories": 90,
+		"name": {
+			"ru": "Сайра"
+		},
+		"price": {
+			"RUS": 280
+		}
+	}, {
+		"id": "id_almond",
+		"category": "id_dried_fruits_nuts",
+		"calories": 575,
+		"name": {
+			"ru": "Миндаль",
+			"en": "Almond"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 410
+		}
+	}, {
+		"id": "id_chicken",
+		"category": "id_meat",
+		"calories": 190,
+		"name": {
+			"ru": "Курица",
+			"en": "Chicken"
+		},
+		"price": {
+			"GBR": 3.5,
+			"RUS": 140
+		}
+	}, {
+		"id": "id_small_cake",
+		"category": "id_bakery",
+		"calories": 450,
+		"name": {
+			"ru": "Пироженое",
+			"en": "Small Cake"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 35
+		}
+	}, {
+		"id": "id_pashtet_myasnoy",
+		"category": "id_tin_meat",
+		"calories": 343,
+		"name": {
+			"ru": "Паштет мясной"
+		},
+		"price": {
+			"RUS": 72
+		}
+	}, {
+		"id": "id_chopped_tomatoes_tin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 16,
+		"name": {
+			"ru": "Огурцы (марин)",
+			"en": "Chopped Tomatoes (tin)"
+		},
+		"price": {
+			"GBR": 0.4,
+			"RUS": 90
+		}
+	}, {
+		"id": "id_popcorn",
+		"category": "id_food_cupboard",
+		"calories": 400,
+		"name": {
+			"ru": "Попкорн",
+			"en": "Popcorn"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 25
+		}
+	}, {
+		"id": "id_tarhun",
+		"category": "id_potables",
+		"calories": 35,
+		"name": {
+			"ru": "Тархун"
+		},
+		"price": {
+			"RUS": 65
+		}
+	}, {
+		"id": "id_salo",
+		"category": "id_meat",
+		"calories": 815,
+		"name": {
+			"ru": "Шпиг (сало)"
+		},
+		"price": {
+			"RUS": 560
+		}
+	}, {
+		"id": "id_potatoes",
+		"category": "id_vegetables",
+		"calories": 82,
+		"name": {
+			"ru": "Картофель",
+			"en": "Potatoes"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 60
+		}
+	}, {
+		"id": "id_coca_cola",
+		"category": "id_potables",
+		"calories": 42,
+		"name": {
+			"ru": "Coca-Cola|Кола|Кока-кола",
+			"en": "Coca-Cola"
+		},
+		"price": {
+			"GBR": 1.7,
+			"RUS": 65
+		}
+	}, {
+		"id": "id_grugd_sol",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 15,
+		"name": {
+			"ru": "Грузди (сол)"
+		},
+		"price": {
+			"RUS": 150
+		}
+	}, {
+		"id": "id_saharozamenitel",
+		"category": "id_food_cupboard",
+		"calories": 20,
+		"name": {
+			"ru": "Сахарозаменитель"
+		},
+		"price": {
+			"RUS": 95
+		}
+	}, {
+		"id": "id_krabovoe_myaso",
+		"category": "id_fish_seafood",
+		"calories": 140,
+		"name": {
+			"ru": "Крабовое мясо"
+		},
+		"price": {
+			"RUS": 70
+		}
+	}, {
+		"id": "id_chicken_wings",
+		"category": "id_meat",
+		"calories": 210,
+		"name": {
+			"ru": "Курица (крылышки)",
+			"en": "Chicken (wings)"
+		},
+		"price": {
+			"GBR": 2.2,
+			"RUS": 190
+		}
+	}, {
+		"id": "id_semolina",
+		"category": "id_food_cupboard",
+		"calories": 328,
+		"name": {
+			"ru": "Крупа Манная|Манка",
+			"en": "Semolina"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 43
+		}
+	}, {
+		"id": "id_prayniki",
+		"category": "id_bakery",
+		"calories": 450,
+		"name": {
+			"ru": "Пряники"
+		},
+		"price": {
+			"RUS": 65
+		}
+	}, {
+		"id": "id_zheltjy_polosatik_sol_sush",
+		"category": "id_fish_seafood",
+		"calories": 320,
+		"name": {
+			"ru": "Желтый полосатик сол/суш"
+		},
+		"price": {
+			"RUS": 110
+		}
+	}, {
+		"id": "id_peas",
+		"category": "id_food_cupboard",
+		"calories": 60,
+		"name": {
+			"ru": "Горох",
+			"en": "Peas"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 45
+		}
+	}, {
+		"id": "id_brown_bread",
+		"category": "id_bakery",
+		"calories": 270,
+		"name": {
+			"ru": "Хлеб черный",
+			"en": "Brown bread"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 15
+		}
+	}, {
+		"id": "id_coffee",
+		"category": "id_potables",
+		"calories": 4,
+		"name": {
+			"ru": "Кофе",
+			"en": "Coffee"
+		},
+		"price": {
+			"GBR": 7,
+			"RUS": 360
+		}
+	}, {
+		"id": "id_asparagus",
+		"category": "id_vegetables",
+		"calories": 21,
+		"name": {
+			"ru": "Спаржа",
+			"en": "Asparagus"
+		},
+		"price": {
+			"GBR": 10.5,
+			"RUS": 2000
+		}
+	}, {
+		"id": "id_sweetcorn_tin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 58,
+		"name": {
+			"ru": "Кукуруза (консерв)",
+			"en": "Sweetcorn (tin)"
+		},
+		"price": {
+			"GBR": 0.4,
+			"RUS": 90
+		}
+	}, {
+		"id": "id_hazelnut",
+		"category": "id_dried_fruits_nuts",
+		"calories": 651,
+		"name": {
+			"ru": "Фундук",
+			"en": "Hazelnut"
+		},
+		"price": {
+			"GBR": 3.4,
+			"RUS": 345
+		}
+	}, {
+		"id": "id_redka",
+		"category": "id_vegetables",
+		"calories": 35,
+		"name": {
+			"ru": "Редька"
+		},
+		"price": {
+			"RUS": 50
+		}
+	}, {
+		"id": "id_muesli",
+		"category": "id_food_cupboard",
+		"calories": 330,
+		"name": {
+			"ru": "Мюсли",
+			"en": "Muesli"
+		},
+		"price": {
+			"GBR": 2,
+			"RUS": 175
+		}
+	}, {
+		"id": "id_persimmon",
+		"category": "id_fruit_berry",
+		"calories": 67,
+		"name": {
+			"ru": "Хурма",
+			"en": "Persimmon"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 375
+		}
+	}, {
+		"id": "id_bagels",
+		"category": "id_bakery",
+		"calories": 335,
+		"name": {
+			"ru": "Баранки",
+			"en": "Bagels"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 50
+		}
+	}, {
+		"id": "id_peas_tin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 53,
+		"name": {
+			"ru": "Горошек (консерв)",
+			"en": "Peas (tin)"
+		},
+		"price": {
+			"GBR": 0.2,
+			"RUS": 85
+		}
+	}, {
+		"id": "id_ryazhenka",
+		"category": "id_dairy",
+		"calories": 58,
+		"name": {
+			"ru": "Ряженка"
+		},
+		"price": {
+			"RUS": 65
+		}
+	}, {
+		"id": "id_chicken_fillet",
+		"category": "id_meat",
+		"calories": 110,
+		"name": {
+			"ru": "Курица (филе)",
+			"en": "Chicken (fillet)"
+		},
+		"price": {
+			"GBR": 5.5,
+			"RUS": 180
+		}
+	}, {
+		"id": "id_parsley",
+		"category": "id_greens_salads",
+		"calories": 50,
+		"name": {
+			"ru": "Петрушка",
+			"en": "Parsley"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 25
+		}
+	}, {
+		"id": "id_croissants",
+		"category": "id_bakery",
+		"calories": 430,
+		"name": {
+			"ru": "Круассаны",
+			"en": "Croissants"
+		},
+		"price": {
+			"GBR": 0.9,
+			"RUS": 35
+		}
+	}, {
+		"id": "id_shprotj",
+		"category": "id_tin_fish",
+		"calories": 280,
+		"name": {
+			"ru": "Шпроты"
+		},
+		"price": {
+			"RUS": 115
+		}
+	}, {
+		"id": "id_pechen_treski",
+		"category": "id_tin_fish",
+		"calories": 360,
+		"name": {
+			"ru": "Печень трески"
+		},
+		"price": {
+			"RUS": 180
+		}
+	}, {
+		"id": "id_konfitur",
+		"category": "id_tin_fruit",
+		"calories": 175,
+		"name": {
+			"ru": "Конфитюр"
+		},
+		"price": {
+			"RUS": 160
+		}
+	}, {
+		"id": "id_brynza_feta",
+		"category": "id_dairy",
+		"calories": 260,
+		"name": {
+			"ru": "Брынза / Фета"
+		},
+		"price": {
+			"RUS": 110
+		}
+	}, {
+		"id": "id_rukkola",
+		"category": "id_greens_salads",
+		"calories": 25,
+		"name": {
+			"ru": "Руккола"
+		},
+		"price": {
+			"RUS": 800
+		}
+	}, {
+		"id": "id_skumbriya_hol_kopch",
+		"category": "id_fish_seafood",
+		"calories": 240,
+		"name": {
+			"ru": "Скумбрия хол/копч"
+		},
+		"price": {
+			"RUS": 155
+		}
+	}, {
+		"id": "id_krupa_yachnevaya",
+		"category": "id_food_cupboard",
+		"calories": 324,
+		"name": {
+			"ru": "Крупа Ячневая"
+		},
+		"price": {
+			"RUS": 35
+		}
+	}, {
+		"id": "id_rulet",
+		"category": "id_bakery",
+		"calories": 400,
+		"name": {
+			"ru": "Рулет"
+		},
+		"price": {
+			"RUS": 50
+		}
+	}, {
+		"id": "id_mint",
+		"category": "id_greens_salads",
+		"calories": 50,
+		"name": {
+			"ru": "Мята",
+			"en": "Mint"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 50
+		}
+	}, {
+		"id": "id_sweet_pepper",
+		"category": "id_vegetables",
+		"calories": 26,
+		"name": {
+			"ru": "Перец сладкий",
+			"en": "Sweet pepper"
+		},
+		"price": {
+			"GBR": 3.6,
+			"RUS": 250
+		}
+	}, {
+		"id": "id_svinina_tushen_konserv",
+		"category": "id_tin_meat",
+		"calories": 350,
+		"name": {
+			"ru": "Свинина тушеная (консерв)"
+		},
+		"price": {
+			"RUS": 190
+		}
+	}, {
+		"id": "id_vobla_sol_sush",
+		"category": "id_fish_seafood",
+		"calories": 240,
+		"name": {
+			"ru": "Вобла сол/суш"
+		},
+		"price": {
+			"RUS": 680
+		}
+	}, {
+		"id": "id_kiwi",
+		"category": "id_fruit_berry",
+		"calories": 47,
+		"name": {
+			"ru": "Киви",
+			"en": "Kiwi"
+		},
+		"price": {
+			"GBR": 0.3,
+			"RUS": 150
+		}
+	}, {
+		"id": "id_carrots_tin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 24,
+		"name": {
+			"en": "Carrots (tin)"
+		},
+		"price": {
+			"GBR": 2
+		}
+	}, {
+		"id": "id_processed_cheese",
+		"category": "id_dairy",
+		"calories": 304,
+		"name": {
+			"ru": "Сыр плавленный",
+			"en": "Processed cheese"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 150
+		}
+	}, {
+		"id": "id_grapes",
+		"category": "id_fruit_berry",
+		"calories": 72,
+		"name": {
+			"ru": "Виноград",
+			"en": "Grapes"
+		},
+		"price": {
+			"GBR": 4,
+			"RUS": 160
+		}
+	}, {
+		"id": "id_red_chillies",
+		"category": "id_greens_salads",
+		"calories": 40,
+		"name": {
+			"ru": "Перец красный острый",
+			"en": "Red Chillies"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 500
+		}
+	}, {
+		"id": "id_avocado",
+		"category": "id_fruit_berry",
+		"calories": 160,
+		"name": {
+			"ru": "Авокадо",
+			"en": "Avocado"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 60
+		}
+	}, {
+		"id": "id_ice_cream",
+		"category": "id_dairy",
+		"calories": 320,
+		"name": {
+			"ru": "Мороженое",
+			"en": "Ice cream"
+		},
+		"price": {
+			"GBR": 2,
+			"RUS": 50
+		}
+	}, {
+		"id": "id_prunes",
+		"category": "id_dried_fruits_nuts",
+		"calories": 231,
+		"name": {
+			"ru": "Чернослив",
+			"en": "Prunes"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 170
+		}
+	}, {
+		"id": "id_chicken_liver",
+		"category": "id_meat",
+		"calories": 160,
+		"name": {
+			"ru": "Печень куриная",
+			"en": "Chicken liver"
+		},
+		"price": {
+			"GBR": 1.2,
+			"RUS": 160
+		}
+	}, {
+		"id": "id_crackers",
+		"category": "id_bakery",
+		"calories": 470,
+		"name": {
+			"ru": "Крекер",
+			"en": "Crackers"
+		},
+		"price": {
+			"GBR": 1.4,
+			"RUS": 30
+		}
+	}, {
+		"id": "id_kefir",
+		"category": "id_dairy",
+		"calories": 56,
+		"name": {
+			"ru": "Кефир",
+			"en": "Kefir"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 75
+		}
+	}, {
+		"id": "id_tvorozhok",
+		"category": "id_dairy",
+		"calories": 122,
+		"name": {
+			"ru": "Творожок"
+		},
+		"price": {
+			"RUS": 40
+		}
+	}, {
+		"id": "id_mango",
+		"category": "id_fruit_berry",
+		"calories": 67,
+		"name": {
+			"ru": "Манго",
+			"en": "Mango"
+		},
+		"price": {
+			"GBR": 1.8,
+			"RUS": 115
+		}
+	}, {
+		"id": "id_semga_slab_sol",
+		"category": "id_fish_seafood",
+		"calories": 290,
+		"name": {
+			"ru": "Семга сл/сол"
+		},
+		"price": {
+			"RUS": 440
+		}
+	}, {
+		"id": "id_prawns",
+		"category": "id_fish_seafood",
+		"calories": 85,
+		"name": {
+			"ru": "Креветки",
+			"en": "Prawns"
+		},
+		"price": {
+			"GBR": 3,
+			"RUS": 500
+		}
+	}, {
+		"id": "id_karbonad",
+		"category": "id_meat",
+		"calories": 520,
+		"name": {
+			"ru": "Карбонад"
+		},
+		"price": {
+			"RUS": 520
+		}
+	}, {
+		"id": "id_prostokvasha",
+		"category": "id_dairy",
+		"calories": 57,
+		"name": {
+			"ru": "Простокваша"
+		},
+		"price": {
+			"RUS": 50
+		}
+	}, {
+		"id": "id_fanta",
+		"category": "id_potables",
+		"calories": 47,
+		"name": {
+			"ru": "Fanta|Фанта",
+			"en": "Fanta"
+		},
+		"price": {
+			"GBR": 1.9,
+			"RUS": 65
+		}
+	}, {
+		"id": "id_kolbasa_varenay",
+		"category": "id_meat",
+		"calories": 200,
+		"name": {
+			"ru": "Колбаса вареная"
+		},
+		"price": {
+			"RUS": 160
+		}
+	}, {
+		"id": "id_salmon_tin",
+		"category": "id_tin_fish",
+		"calories": 140,
+		"name": {
+			"ru": "Горбуша (консерв)",
+			"en": "Salmon (tin)"
+		},
+		"price": {
+			"GBR": 1.8,
+			"RUS": 100
+		}
+	}, {
+		"id": "id_pirozhki",
+		"category": "id_bakery",
+		"calories": 280,
+		"name": {
+			"ru": "Пирожки"
+		},
+		"price": {
+			"RUS": 220
+		}
+	}, {
+		"id": "id_doshirak",
+		"category": "id_food_cupboard",
+		"calories": 440,
+		"name": {
+			"ru": "Доширак"
+		},
+		"price": {
+			"RUS": 13
+		}
+	}, {
+		"id": "id_lamb",
+		"category": "id_meat",
+		"calories": 216,
+		"name": {
+			"ru": "Баранина",
+			"en": "Lamb"
+		},
+		"price": {
+			"GBR": 3.7,
+			"RUS": 600
+		}
+	}, {
+		"id": "id_hlopya_ovsyanje",
+		"category": "id_food_cupboard",
+		"calories": 336,
+		"name": {
+			"ru": "Хлопья овсяные"
+		},
+		"price": {
+			"RUS": 50
+		}
+	}, {
+		"id": "id_tomatoes",
+		"category": "id_vegetables",
+		"calories": 20,
+		"name": {
+			"ru": "Томаты",
+			"en": "Tomatoes"
+		},
+		"price": {
+			"GBR": 1.9,
+			"RUS": 170
+		}
+	}, {
+		"id": "id_cocoa",
+		"category": "id_potables",
+		"calories": 374,
+		"name": {
+			"ru": "Какао",
+			"en": "Cocoa"
+		},
+		"price": {
+			"GBR": 3,
+			"RUS": 75
+		}
+	}, {
+		"id": "id_mintay",
+		"category": "id_fish_seafood",
+		"calories": 70,
+		"name": {
+			"ru": "Минтай"
+		},
+		"price": {
+			"RUS": 190
+		}
+	}, {
+		"id": "id_vermishel",
+		"category": "id_food_cupboard",
+		"calories": 350,
+		"name": {
+			"ru": "Вермишель"
+		},
+		"price": {
+			"RUS": 38
+		}
+	}, {
+		"id": "id_white_bread",
+		"category": "id_bakery",
+		"calories": 270,
+		"name": {
+			"ru": "Хлеб белый (батон)",
+			"en": "White bread"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 20
+		}
+	}, {
+		"id": "id_dried_apricots",
+		"category": "id_dried_fruits_nuts",
+		"calories": 215,
+		"name": {
+			"ru": "Курага",
+			"en": "Dried apricots"
+		},
+		"price": {
+			"GBR": 3.3,
+			"RUS": 180
+		}
+	}, {
+		"id": "id_capers_tin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 33,
+		"name": {
+			"ru": "Каперсы (консерв)",
+			"en": "Capers (tin)"
+		},
+		"price": {
+			"GBR": 2.1,
+			"RUS": 144
+		}
+	}, {
+		"id": "id_7_up",
+		"category": "id_potables",
+		"calories": 45,
+		"name": {
+			"ru": "7-UP",
+			"en": "7-UP"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 73
+		}
+	}, {
+		"id": "id_chicken_thighs",
+		"category": "id_meat",
+		"calories": 210,
+		"name": {
+			"ru": "Курица (бедро)",
+			"en": "Chicken (thighs)"
+		},
+		"price": {
+			"GBR": 3,
+			"RUS": 180
+		}
+	}, {
+		"id": "id_motsarella",
+		"category": "id_dairy",
+		"calories": 245,
+		"name": {
+			"ru": "Моцарелла"
+		},
+		"price": {
+			"RUS": 100
+		}
+	}, {
+		"id": "id_black_olives",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 127,
+		"name": {
+			"ru": "Маслины",
+			"en": "Black olives"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 140
+		}
+	}, {
+		"id": "id_spring_onions",
+		"category": "id_greens_salads",
+		"calories": 22,
+		"name": {
+			"ru": "Лук (зеленый, перья)",
+			"en": "Spring Onions"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 20
+		}
+	}, {
+		"id": "id_putassu",
+		"category": "id_fish_seafood",
+		"calories": 80,
+		"name": {
+			"ru": "Путассу"
+		},
+		"price": {
+			"RUS": 90
+		}
+	}, {
+		"id": "id_broccoli",
+		"category": "id_vegetables",
+		"calories": 34,
+		"name": {
+			"ru": "Брокколи",
+			"en": "Broccoli"
+		},
+		"price": {
+			"GBR": 0.4,
+			"RUS": 230
+		}
+	}, {
+		"id": "id_apple",
+		"category": "id_fruit_berry",
+		"calories": 47,
+		"name": {
+			"ru": "Яблоки",
+			"en": "Apple"
+		},
+		"price": {
+			"GBR": 2,
+			"RUS": 70
+		}
+	}, {
+		"id": "id_iceberg_lettuce",
+		"category": "id_greens_salads",
+		"calories": 14,
+		"name": {
+			"ru": "Салат айсберг",
+			"en": "Iceberg lettuce"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 100
+		}
+	}, {
+		"id": "id_tuna_tin",
+		"category": "id_tin_fish",
+		"calories": 113,
+		"name": {
+			"ru": "Тунец (консерв)",
+			"en": "Tuna (tin)"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 135
+		}
+	}, {
+		"id": "id_lecho",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 48,
+		"name": {
+			"ru": "Лечо"
+		},
+		"price": {
+			"RUS": 103
+		}
+	}, {
+		"id": "id_pineapple_in_juice",
+		"category": "id_tin_fruit",
+		"calories": 60,
+		"name": {
+			"ru": "Ананасы (консерв)",
+			"en": "Pineapple In Juice"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 130
+		}
+	}, {
+		"id": "id_baljk_s_k",
+		"category": "id_meat",
+		"calories": 220,
+		"name": {
+			"ru": "Балык с/к"
+		},
+		"price": {
+			"RUS": 450
+		}
+	}, {
+		"id": "id_mirinda",
+		"category": "id_potables",
+		"calories": 49,
+		"name": {
+			"ru": "Mirinda|Миринда"
+		},
+		"price": {
+			"RUS": 42
+		}
+	}, {
+		"id": "id_pork",
+		"category": "id_meat",
+		"calories": 190,
+		"name": {
+			"ru": "Свинина",
+			"en": "Pork"
+		},
+		"price": {
+			"GBR": 2.5,
+			"RUS": 300
+		}
+	}, {
+		"id": "id_ikra_krasnay",
+		"category": "id_fish_seafood",
+		"calories": 260,
+		"name": {
+			"ru": "Икра красная"
+		},
+		"price": {
+			"RUS": 600
+		}
+	}, {
+		"id": "id_sushki",
+		"category": "id_bakery",
+		"calories": 340,
+		"name": {
+			"ru": "Сушки"
+		},
+		"price": {
+			"RUS": 30
+		}
+	}, {
+		"id": "id_solomka",
+		"category": "id_food_cupboard",
+		"calories": 120,
+		"name": {
+			"ru": "Соломка"
+		},
+		"price": {
+			"RUS": 25
+		}
+	}, {
+		"id": "id_onion",
+		"category": "id_vegetables",
+		"calories": 41,
+		"name": {
+			"ru": "Лук",
+			"en": "Onion"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 40
+		}
+	}, {
+		"id": "id_gotovjy_zavtrak_shariki_zvezdochki_podushechki",
+		"category": "id_food_cupboard",
+		"calories": 380,
+		"name": {
+			"ru": "Готовый завтрак (шарики, звездочки, подушечки)"
+		},
+		"price": {
+			"RUS": 105
+		}
+	}, {
+		"id": "id_salt",
+		"category": "id_food_cupboard",
+		"calories": 0,
+		"name": {
+			"ru": "Соль",
+			"en": "Salt"
+		},
+		"price": {
+			"GBR": 0.4,
+			"RUS": 41
+		}
+	}, {
+		"id": "id_baguette",
+		"category": "id_bakery",
+		"calories": 220,
+		"name": {
+			"ru": "Багет",
+			"en": "Baguette"
+		},
+		"price": {
+			"GBR": 0.3,
+			"RUS": 5
+		}
+	}, {
+		"id": "id_mushrooms",
+		"category": "id_mushrooms",
+		"calories": 27,
+		"name": {
+			"ru": "Грибы",
+			"en": "Mushrooms"
+		},
+		"price": {
+			"GBR": 3,
+			"RUS": 230
+		}
+	}, {
+		"id": "id_strudel",
+		"category": "id_bakery",
+		"calories": 290,
+		"name": {
+			"ru": "Штрудель",
+			"en": "Strudel"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 110
+		}
+	}, {
+		"id": "id_beans_tin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 87,
+		"name": {
+			"ru": "Фасоль (консерв)",
+			"en": "Beans (tin)"
+		},
+		"price": {
+			"GBR": 0.3,
+			"RUS": 70
+		}
+	}, {
+		"id": "id_snacks",
+		"category": "id_food_cupboard",
+		"calories": 500,
+		"name": {
+			"ru": "Чипсы",
+			"en": "Snacks"
+		},
+		"price": {
+			"GBR": 2.3,
+			"RUS": 50
+		}
+	}, {
+		"id": "id_schavel",
+		"category": "id_greens_salads",
+		"calories": 40,
+		"name": {
+			"ru": "Щавель"
+		},
+		"price": {
+			"RUS": 40
+		}
+	}, {
+		"id": "id_meatballs",
+		"category": "id_meat",
+		"calories": 280,
+		"name": {
+			"en": "Meatballs"
+		},
+		"price": {
+			"GBR": 2
+		}
+	}, {
+		"id": "id_rice",
+		"category": "id_food_cupboard",
+		"calories": 344,
+		"name": {
+			"ru": "Рис",
+			"en": "Rice"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 75
+		}
+	}, {
+		"id": "id_raisins",
+		"category": "id_dried_fruits_nuts",
+		"calories": 264,
+		"name": {
+			"ru": "Изюм",
+			"en": "Raisins"
+		},
+		"price": {
+			"GBR": 1.6,
+			"RUS": 185
+		}
+	}, {
+		"id": "id_myaso_tsjplenka_konserv",
+		"category": "id_tin_meat",
+		"calories": 175,
+		"name": {
+			"ru": "Мясо цыпленка (консерв)"
+		},
+		"price": {
+			"RUS": 80
+		}
+	}, {
+		"id": "id_flatbread",
+		"category": "id_bakery",
+		"calories": 305,
+		"name": {
+			"en": "Flatbread"
+		},
+		"price": {
+			"GBR": 1.2
+		}
+	}, {
+		"id": "id_kus_kus",
+		"category": "id_food_cupboard",
+		"calories": 376,
+		"name": {
+			"ru": "Круппа Кус-кус"
+		},
+		"price": {
+			"RUS": 109
+		}
+	}, {
+		"id": "id_orange",
+		"category": "id_fruit_berry",
+		"calories": 48,
+		"name": {
+			"ru": "Апельсины",
+			"en": "Orange"
+		},
+		"price": {
+			"GBR": 0.3,
+			"RUS": 70
+		}
+	}, {
+		"id": "id_govyadina_tushen_konserv",
+		"category": "id_tin_meat",
+		"calories": 220,
+		"name": {
+			"ru": "Говядина тушеная (консерв)"
+		},
+		"price": {
+			"RUS": 180
+		}
+	}, {
+		"id": "id_sardines_tin",
+		"category": "id_tin_fish",
+		"calories": 190,
+		"name": {
+			"ru": "Сардина (консерв)",
+			"en": "Sardines (tin)"
+		},
+		"price": {
+			"GBR": 0.4,
+			"RUS": 80
+		}
+	}, {
+		"id": "id_forel_konserv",
+		"category": "id_tin_fish",
+		"calories": 90,
+		"name": {
+			"ru": "Форель (консерв)"
+		},
+		"price": {
+			"RUS": 85
+		}
+	}, {
+		"id": "id_cucumbers",
+		"category": "id_vegetables",
+		"calories": 30,
+		"name": {
+			"ru": "Огурцы",
+			"en": "Cucumbers"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 170
+		}
+	}, {
+		"id": "id_yazhjk",
+		"category": "id_meat",
+		"calories": 208,
+		"name": {
+			"ru": "Язык"
+		},
+		"price": {
+			"RUS": 560
+		}
+	}, {
+		"id": "id_nut",
+		"category": "id_food_cupboard",
+		"calories": 364,
+		"name": {
+			"ru": "Нут"
+		},
+		"price": {
+			"RUS": 90
+		}
+	}, {
+		"id": "id_pashtet_pechenochnjy",
+		"category": "id_tin_meat",
+		"calories": 200,
+		"name": {
+			"ru": "Паштет печеночный"
+		},
+		"price": {
+			"RUS": 45
+		}
+	}, {
+		"id": "id_krupa_kukuruznaya",
+		"category": "id_food_cupboard",
+		"calories": 337,
+		"name": {
+			"ru": "Крупа Кукурузная"
+		},
+		"price": {
+			"RUS": 47
+		}
+	}, {
+		"id": "id_ice_tea",
+		"category": "id_potables",
+		"calories": 30,
+		"name": {
+			"ru": "Холодный чай",
+			"en": "Ice tea"
+		},
+		"price": {
+			"GBR": 1.6,
+			"RUS": 55
+		}
+	}, {
+		"id": "id_pepsi",
+		"category": "id_potables",
+		"calories": 43,
+		"name": {
+			"ru": "Pepsi|Пепси",
+			"en": "Pepsi"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 42
+		}
+	}, {
+		"id": "id_courgettes",
+		"category": "id_vegetables",
+		"calories": 16,
+		"name": {
+			"ru": "Цукини",
+			"en": "Courgettes"
+		},
+		"price": {
+			"GBR": 1.9,
+			"RUS": 180
+		}
+	}, {
+		"id": "id_seafood_sticks",
+		"category": "id_fish_seafood",
+		"calories": 90,
+		"name": {
+			"ru": "Крабовые палочки",
+			"en": "Seafood Sticks"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 47
+		}
+	}, {
+		"id": "id_syr_kolbasny",
+		"category": "id_dairy",
+		"calories": 290,
+		"name": {
+			"ru": "Сыр (колбасный)"
+		},
+		"price": {
+			"RUS": 120
+		}
+	}, {
+		"id": "id_breadstick",
+		"category": "id_food_cupboard",
+		"calories": 410,
+		"name": {
+			"en": "Breadstick"
+		},
+		"price": {
+			"GBR": 0.8
+		}
+	}, {
+		"id": "id_meat",
+		"category": "id_meat",
+		"calories": 400,
+		"name": {
+			"ru": "Мясо",
+			"en": "Meat"
+		},
+		"price": {
+			"GBR": 2.7,
+			"RUS": 400
+		}
+	}, {
+		"id": "id_buzhenina",
+		"category": "id_meat",
+		"calories": 360,
+		"name": {
+			"ru": "Буженина"
+		},
+		"price": {
+			"RUS": 930
+		}
+	}, {
+		"id": "id_peanut",
+		"category": "id_dried_fruits_nuts",
+		"calories": 552,
+		"name": {
+			"ru": "Арахис",
+			"en": "Peanut"
+		},
+		"price": {
+			"GBR": 1.3,
+			"RUS": 75
+		}
+	}, {
+		"id": "id_lemon",
+		"category": "id_fruit_berry",
+		"calories": 34,
+		"name": {
+			"ru": "Лимон",
+			"en": "Lemon"
+		},
+		"price": {
+			"GBR": 0.3,
+			"RUS": 130
+		}
+	}, {
+		"id": "id_lime",
+		"category": "id_fruit_berry",
+		"calories": 30,
+		"name": {
+			"ru": "Лайм",
+			"en": "Lime"
+		},
+		"price": {
+			"GBR": 0.3,
+			"RUS": 200
+		}
+	}, {
+		"id": "id_cod",
+		"category": "id_fish_seafood",
+		"calories": 70,
+		"name": {
+			"ru": "Треска",
+			"en": "Cod"
+		},
+		"price": {
+			"GBR": 12.5,
+			"RUS": 400
+		}
+	}, {
+		"id": "id_mackerel_tin",
+		"category": "id_tin_fish",
+		"calories": 300,
+		"name": {
+			"ru": "Скумбрия (консерв)",
+			"en": "Mackerel (tin)"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 70
+		}
+	}, {
+		"id": "id_banana",
+		"category": "id_fruit_berry",
+		"calories": 96,
+		"name": {
+			"ru": "Бананы",
+			"en": "Banana"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 50
+		}
+	}, {
+		"id": "id_sour_cream",
+		"category": "id_dairy",
+		"calories": 160,
+		"name": {
+			"ru": "Сметана",
+			"en": "Sour cream"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 40
+		}
+	}, {
+		"id": "id_muffins",
+		"category": "id_bakery",
+		"calories": 460,
+		"name": {
+			"ru": "Маффины",
+			"en": "Muffins"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 150
+		}
+	}, {
+		"id": "id_coconut",
+		"category": "id_fruit_berry",
+		"calories": 345,
+		"name": {
+			"ru": "Кокос",
+			"en": "Coconut"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 55
+		}
+	}, {
+		"id": "id_snezhok",
+		"category": "id_dairy",
+		"calories": 74,
+		"name": {
+			"ru": "Снежок"
+		},
+		"price": {
+			"RUS": 50
+		}
+	}, {
+		"id": "id_cornflakes",
+		"category": "id_food_cupboard",
+		"calories": 347,
+		"name": {
+			"ru": "Хлопья кукурузные",
+			"en": "Cornflakes"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 63
+		}
+	}, {
+		"id": "id_cilantro",
+		"category": "id_greens_salads",
+		"calories": 23,
+		"name": {
+			"ru": "Кинза",
+			"en": "Cilantro"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 25
+		}
+	}, {
+		"id": "id_bacon",
+		"category": "id_meat",
+		"calories": 400,
+		"name": {
+			"ru": "Бекон",
+			"en": "Bacon"
+		},
+		"price": {
+			"GBR": 2.5,
+			"RUS": 150
+		}
+	}, {
+		"id": "id_buckwheat",
+		"category": "id_food_cupboard",
+		"calories": 313,
+		"name": {
+			"ru": "Греча",
+			"en": "Buckwheat"
+		},
+		"price": {
+			"GBR": 1.9,
+			"RUS": 85
+		}
+	}, {
+		"id": "id_lemonade",
+		"category": "id_potables",
+		"calories": 30,
+		"name": {
+			"ru": "Лимонад",
+			"en": "Lemonade"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 65
+		}
+	}, {
+		"id": "id_salat_listovoy",
+		"category": "id_greens_salads",
+		"calories": 25,
+		"name": {
+			"ru": "Салат листовой"
+		},
+		"price": {
+			"RUS": 40
+		}
+	}, {
+		"id": "id_cheese",
+		"category": "id_dairy",
+		"calories": 362,
+		"name": {
+			"ru": "Сыр",
+			"en": "Cheese"
+		},
+		"price": {
+			"GBR": 2.5,
+			"RUS": 200
+		}
+	}, {
+		"id": "id_water",
+		"category": "id_potables",
+		"calories": 0,
+		"name": {
+			"ru": "Вода",
+			"en": "Water"
+		},
+		"price": {
+			"GBR": 0.2,
+			"RUS": 75
+		}
+	}, {
+		"id": "id_basil",
+		"category": "id_greens_salads",
+		"calories": 27,
+		"name": {
+			"ru": "Базилик",
+			"en": "Basil"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 45
+		}
+	}, {
+		"id": "id_liver",
+		"category": "id_meat",
+		"calories": 110,
+		"name": {
+			"ru": "Печень",
+			"en": "Liver"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 170
+		}
+	}, {
+		"id": "id_pita",
+		"category": "id_bakery",
+		"calories": 260,
+		"name": {
+			"ru": "Лаваш",
+			"en": "Pita"
+		},
+		"price": {
+			"GBR": 0.5,
+			"RUS": 35
+		}
+	}, {
+		"id": "id_sugar",
+		"category": "id_food_cupboard",
+		"calories": 400,
+		"name": {
+			"ru": "Сахар",
+			"en": "Sugar"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 40
+		}
+	}, {
+		"id": "id_pear",
+		"category": "id_fruit_berry",
+		"calories": 47,
+		"name": {
+			"ru": "Груши",
+			"en": "Pear"
+		},
+		"price": {
+			"GBR": 2,
+			"RUS": 130
+		}
+	}, {
+		"id": "id_honey",
+		"category": "id_tin_fruit",
+		"calories": 280,
+		"name": {
+			"ru": "Мед",
+			"en": "Honey"
+		},
+		"price": {
+			"GBR": 1.8,
+			"RUS": 170
+		}
+	}, {
+		"id": "id_beans",
+		"category": "id_food_cupboard",
+		"calories": 93,
+		"name": {
+			"ru": "Фасоль",
+			"en": "Beans"
+		},
+		"price": {
+			"GBR": 1.2,
+			"RUS": 115
+		}
+	}, {
+		"id": "id_puff_pastry",
+		"category": "id_bakery",
+		"calories": 350,
+		"name": {
+			"ru": "Слойка",
+			"en": "Puff Pastry"
+		},
+		"price": {
+			"GBR": 1.1,
+			"RUS": 20
+		}
+	}, {
+		"id": "id_basa",
+		"category": "id_fish_seafood",
+		"calories": 165,
+		"name": {
+			"ru": "Пангасиус",
+			"en": "Basa"
+		},
+		"price": {
+			"GBR": 2.6,
+			"RUS": 220
+		}
+	}, {
+		"id": "id_kuritsa_okorochek",
+		"category": "id_meat",
+		"calories": 150,
+		"name": {
+			"ru": "Курица (окорочек)"
+		},
+		"price": {
+			"RUS": 190
+		}
+	}, {
+		"id": "id_spread",
+		"category": "id_dairy",
+		"calories": 540,
+		"name": {
+			"ru": "Маргарин",
+			"en": "Spread"
+		},
+		"price": {
+			"GBR": 1.5,
+			"RUS": 25
+		}
+	}, {
+		"id": "id_griby",
+		"category": "id_mushrooms",
+		"calories": 27,
+		"name": {
+			"ru": "Шампиньоны"
+		},
+		"price": {
+			"RUS": 230
+		}
+	}, {
+		"id": "id_mushrooms_tin",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 18,
+		"name": {
+			"ru": "Шампиньоны (марин)",
+			"en": "Mushrooms (tin)"
+		},
+		"price": {
+			"GBR": 0.4,
+			"RUS": 130
+		}
+	}, {
+		"id": "id_instant_noodles",
+		"category": "id_food_cupboard",
+		"calories": 440,
+		"name": {
+			"ru": "Лапша быстрого приготовления",
+			"en": "Instant noodles"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 13
+		}
+	}, {
+		"id": "id_mayonnaise",
+		"category": "id_dairy",
+		"calories": 613,
+		"name": {
+			"ru": "Майонез",
+			"en": "Mayonnaise"
+		},
+		"price": {
+			"GBR": 1.8,
+			"RUS": 65
+		}
+	}, {
+		"id": "id_cashew",
+		"category": "id_dried_fruits_nuts",
+		"calories": 643,
+		"name": {
+			"ru": "Кешью",
+			"en": "Cashew"
+		},
+		"price": {
+			"GBR": 2.1,
+			"RUS": 315
+		}
+	}, {
+		"id": "id_beef_burgers",
+		"category": "id_meat",
+		"calories": 319,
+		"name": {
+			"en": "Beef Burgers"
+		},
+		"price": {
+			"GBR": 2.5
+		}
+	}, {
+		"id": "id_сream",
+		"category": "id_dairy",
+		"calories": 206,
+		"name": {
+			"ru": "Сливки",
+			"en": "Cream"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 85
+		}
+	}, {
+		"id": "id_golubtsj_s_myasom_konserv",
+		"category": "id_tin_meat",
+		"calories": 140,
+		"name": {
+			"ru": "Голубцы с мясом (консерв)"
+		},
+		"price": {
+			"RUS": 90
+		}
+	}, {
+		"id": "id_kokteyl_molochny",
+		"category": "id_dairy",
+		"calories": 77,
+		"name": {
+			"ru": "Коктейль молочный"
+		},
+		"price": {
+			"RUS": 35
+		}
+	}, {
+		"id": "id_haddock",
+		"category": "id_fish_seafood",
+		"calories": 73,
+		"name": {
+			"ru": "Пикша",
+			"en": "Haddock"
+		},
+		"price": {
+			"GBR": 8.3,
+			"RUS": 230
+		}
+	}, {
+		"id": "id_radish",
+		"category": "id_vegetables",
+		"calories": 20,
+		"name": {
+			"ru": "Редис",
+			"en": "Radish"
+		},
+		"price": {
+			"GBR": 2.4,
+			"RUS": 120
+		}
+	}, {
+		"id": "id_doughnuts",
+		"category": "id_bakery",
+		"calories": 390,
+		"name": {
+			"ru": "Пончики",
+			"en": "Doughnuts"
+		},
+		"price": {
+			"GBR": 1,
+			"RUS": 30
+		}
+	}, {
+		"id": "id_turkey",
+		"category": "id_meat",
+		"calories": 134,
+		"name": {
+			"ru": "Индейка",
+			"en": "Turkey"
+		},
+		"price": {
+			"GBR": 2.6,
+			"RUS": 380
+		}
+	}, {
+		"id": "id_peach_in_juice",
+		"category": "id_tin_fruit",
+		"calories": 53,
+		"name": {
+			"ru": "Персики (консерв)",
+			"en": "Peach In Juice"
+		},
+		"price": {
+			"GBR": 0.7,
+			"RUS": 95
+		}
+	}, {
+		"id": "id_sprite",
+		"category": "id_potables",
+		"calories": 42,
+		"name": {
+			"ru": "Sprite|Спрайт",
+			"en": "Sprite"
+		},
+		"price": {
+			"GBR": 1.9,
+			"RUS": 65
+		}
+	}, {
+		"id": "id_vatrushka",
+		"category": "id_bakery",
+		"calories": 315,
+		"name": {
+			"ru": "Ватрушка"
+		},
+		"price": {
+			"RUS": 30
+		}
+	}, {
+		"id": "id_carrot",
+		"category": "id_vegetables",
+		"calories": 60,
+		"name": {
+			"ru": "Морковь",
+			"en": "Carrot"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 20
+		}
+	}, {
+		"id": "id_naan",
+		"category": "id_bakery",
+		"calories": 258,
+		"name": {
+			"en": "Naan"
+		},
+		"price": {
+			"GBR": 1
+		}
+	}, {
+		"id": "id_juice",
+		"category": "id_potables",
+		"calories": 50,
+		"name": {
+			"ru": "Сок",
+			"en": "Juice"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 75
+		}
+	}, {
+		"id": "id_green_olives",
+		"category": "id_tin_vegetables_mushrooms",
+		"calories": 114,
+		"name": {
+			"ru": "Оливки",
+			"en": "Green olives"
+		},
+		"price": {
+			"GBR": 0.8,
+			"RUS": 90
+		}
+	}, {
+		"id": "id_mandarin_in_juice",
+		"category": "id_tin_fruit",
+		"calories": 34,
+		"name": {
+			"en": "Mandarin In Juice"
+		},
+		"price": {
+			"GBR": 0.6
+		}
+	}, {
+		"id": "id_beef",
+		"category": "id_meat",
+		"calories": 110,
+		"name": {
+			"ru": "Говядина",
+			"en": "Beef"
+		},
+		"price": {
+			"GBR": 2.9,
+			"RUS": 540
+		}
+	}, {
+		"id": "id_flour",
+		"category": "id_food_cupboard",
+		"calories": 342,
+		"name": {
+			"ru": "Мука",
+			"en": "Flour"
+		},
+		"price": {
+			"GBR": 0.6,
+			"RUS": 40
+		}
+	}, {
+		"id": "id_herring_fillets",
+		"category": "id_tin_fish",
+		"calories": 170,
+		"name": {
+			"ru": "Филе сельди (консерв)",
+			"en": "Herring Fillets"
+		},
+		"price": {
+			"GBR": 2.5,
+			"RUS": 120
+		}
+	}, {
+		"id": "id_kalmar_konserv",
+		"category": "id_tin_fish",
+		"calories": 105,
+		"name": {
+			"ru": "Кальмар (консерв)"
+		},
+		"price": {
+			"RUS": 60
+		}
+	}
+]

@@ -60,6 +60,12 @@ var appServer = new http.Server(function(req,res)
 	
 	if (urlParsed.pathname == '/users')
 	{
+		if (mongoose.connection.readyState!=1)
+		{
+			res.statusCode = 500
+			res.end('[ERROR] Database not connected')	
+		}
+		
 		var User = require('../models/user').User
 		User.find({}, function(err, users){
 			if (err)
@@ -71,6 +77,31 @@ var appServer = new http.Server(function(req,res)
 			{
 				res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin':'*'})
 				res.end(JSON.stringify(users))
+			}
+		})
+		
+		correctRequest = true
+	}
+	
+	if (urlParsed.pathname == '/api/getDefaultProducts')
+	{
+		if (mongoose.connection.readyState!=1)
+		{
+			res.statusCode = 500
+			res.end('[ERROR] Database not connected')	
+		}
+		
+		var Product = require ('../models/default_product.js').defaultProduct
+		Product.find({}, function(err, products){
+			if (err)
+			{
+				res.statusCode = 500
+				res.end('[ERROR] Server error')	
+			}
+			else
+			{
+				res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin':'*'})
+				res.end(JSON.stringify(products))
 			}
 		})
 		

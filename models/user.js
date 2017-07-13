@@ -1,4 +1,4 @@
-console.log('[User model] User model module activated')
+console.log(Date.now() + ' [User model] User model module activated ')
 
 var crypto   = require('crypto')
 var mongoose = require('../libs/mongoose'), Schema = mongoose.Schema
@@ -24,6 +24,43 @@ var schema = new Schema({
 	{
 		type: Date,
 		default: Date.now
+	},
+	dictionary:
+	{
+		products:
+		[{
+			id: {type: String},
+			name:
+			{
+				ru: {type: String},
+				en: {type: String},
+				de: {type: String},
+				fr: {type: String},
+				es: {type: String}
+			},
+			price:
+			{
+				rus: {type: Number},
+				gbr: {type: Number},
+				usa: {type: Number},
+				fra: {type: Number},
+				esp: {type: Number},
+				bra: {type: Number},
+				blr: {type: Number}
+			}
+		}],
+		categories:
+		[{
+			id: {type: String},
+			name:
+			{
+				ru: {type: String},
+				en: {type: String},
+				de: {type: String},
+				fr: {type: String},
+				es: {type: String}
+			}
+		}]
 	}
 })
 

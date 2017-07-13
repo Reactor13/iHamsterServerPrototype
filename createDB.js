@@ -1,14 +1,19 @@
 // Скрипт для создания новой базы данных
 
-var async    = require ('async')
-var mongoose = require ('./libs/mongoose')
-var User     = require ('./models/user.js').User
+var fs              = require('fs')
+var async           = require ('async')
+var mongoose        = require ('./libs/mongoose')
+var User            = require ('./models/user.js').User
+var defaultProduct  = require ('./models/default_product.js').defaultProduct
+var defaultCategory = require ('./models/default_category.js').defaultCategory
 
 async.series([
 	open,
 	dropDatabase,
 	requireModels,
-	createUsers
+	createUsers,
+	createCategories,
+	createProducts
 ], function(err) {
 	if (err)
 	{
@@ -34,6 +39,7 @@ function dropDatabase(callback){
 
 function requireModels(callback){
 	require ('./models/user.js')
+	require ('./models/default_product.js')
 	
 	async.each(Object.keys(mongoose.models), function(modelName, callback){
 		mongoose.models[modelName].ensureIndexes(callback)
@@ -42,7 +48,7 @@ function requireModels(callback){
 
 function createUsers(callback) {
 	var users = [
-		{email: '1@1.ry', password : '12345'},
+		{email: '1@1.ry', password : '12345', dictionary: {products:[{id:"test",name:{ru:"тест"}}]} },
 		{email: '2@2.ry', password : '12345'},
 		{email: '3@3.ry', password : '12345'},
 	]
@@ -50,5 +56,30 @@ function createUsers(callback) {
 	async.each(users, function(userData, callback){
 		var user = new mongoose.models.User(userData)
 		user.save(callback)
+	},callback)
+}
+
+function createCategories(callback) {
+	var categories = 
+	[
+		{
+			id  : "id_bread",
+			name: {ru:"Хлеб", en:"Bread"}
+		}
+	]
+	
+	async.each(categories, function(categoryData, callback){
+		var category = new mongoose.models.defaultCategory(categoryData)
+		category.save(callback)
+	},callback)
+}
+
+function createProducts(callback) {
+	
+	products = require('./data/products.json')
+	
+	async.each(products, function(productData, callback){
+		var product = new mongoose.models.defaultProduct(productData)
+		product.save(callback)
 	},callback)
 }
