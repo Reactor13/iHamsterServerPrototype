@@ -3,115 +3,86 @@ console.log('[Server] Server module activated')
 var fs           = require('fs');
 var http         = require('http');
 var url          = require('url');
+var qs           = require('querystring');
 var mongoose     = require('../libs/mongoose'), Schema = mongoose.Schema
+var api          = require('../api/api')
 var serverConfig = require('../config/server.json');
 
 var appServer = new http.Server(function(req,res)
 {
 	var urlParsed              = url.parse(req.url, true);
-	var correctRequest         = new Boolean(false);
-	var incorrectRequestReason = new String();
 	var clientIP               = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	var clientHost             = req.headers.host;
 	var clientOrigin           = req.headers.origin;
+	var requestPostData        = '';
 	
-	if (clientOrigin == undefined || clientOrigin == null || clientOrigin == 'null') {clientOrigin = '*'}
+	console.log(' ')
 	console.log('[Server] New request from : ' + clientIP + ', host :' + clientHost + ', origin : ' + clientOrigin);
 	console.log('[Server] ... ' + req.method + ' ' + req.url)
 	
-	if (urlParsed.pathname == '/')
+	// Обработка POST запросов
+	if (req.method == 'POST')
 	{
-		res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8', 'Access-Control-Allow-Origin':'*'});
-		correctRequest = true;
-		
-		fs.readFile('./templates/server-hello.txt', {encoding: 'utf-8'}, function(err, data) 
+        req.on('data', function (data) {requestPostData += data; if (requestPostData.length > 1e6) {req.connection.destroy()}});
+        req.on('end',  function () 
 		{
-			if (err)
+            requestPostData = qs.parse(requestPostData)
+			switch (urlParsed.pathname)
 			{
-				console.error(err)
-				res.statusCode = 500
-				res.end('Server error')
-				return
+				case "/api/createUser":
+					api.createUser(requestPostData, function(err, answer) {answerServer(err, answer)})
+					break;
+				default:
+					answerServer(404,'[ERROR] Incorrect request')
+					break;
 			}
-			else
-			{
-				res.end(data + 'Server, version: ' + serverConfig.serverVersion)
-			}
-			
-		});
+        });
+    }
+	
+	// Обработка GET запросов
+	if (req.method == 'GET')
+	{
+		switch (urlParsed.pathname)
+		{
+			case "/":
+				fs.readFile('./templates/server-hello.txt', {encoding: 'utf-8'}, function(err, data){
+					if (err) throw err
+					answerServer(err, data + 'Server, version: ' + serverConfig.serverVersion)
+				})
+				break;
+			case "/api/echo":
+				if (urlParsed.query.message!=null) {answerServer(null, 'Echo: ' + urlParsed.query.message)}
+				else                               {answerServer(403,  'There is no echo message...')}
+				break;
+			case "/api/getUsers":
+				api.getUsers(function(err, answer) {answerServer(err, answer)})
+				break;
+			case "/api/getDefaultProducts":
+				api.getDefaultProducts(function(err, answer) {answerServer(err, answer)})
+				break;
+			default:
+				answerServer(404,'[ERROR] Incorrect request')
+				break;
+		}
 	}
 	
-	if (urlParsed.pathname == '/api/echo' && urlParsed.query.message)
+	// Функция вызывает ответ сервер
+	function answerServer(err, answer)
 	{
-		if (urlParsed.query.message.length < 10)
+		if (err)
 		{
-			res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8', 'Access-Control-Allow-Origin':'*'})
-			res.end('Echo: ' + urlParsed.query.message)
-			correctRequest = true
-			return
+			switch (err)
+			{
+				case 403: res.statusCode = 403; break;		
+				default:  res.statusCode = 404; break;
+			}
+			res.end(answer)	
 		}
 		else
 		{
-			correctRequest         = false;
-			incorrectRequestReason = 'Echo message is too long.'
-			return
+			res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin':'*'})
+			res.end(answer)
 		}
-	}	
-	
-	if (urlParsed.pathname == '/users')
-	{
-		if (mongoose.connection.readyState!=1)
-		{
-			res.statusCode = 500
-			res.end('[ERROR] Database not connected')	
-		}
-		
-		var User = require('../models/user').User
-		User.find({}, function(err, users){
-			if (err)
-			{
-				res.statusCode = 500
-				res.end('[ERROR] Server error')	
-			}
-			else
-			{
-				res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin':'*'})
-				res.end(JSON.stringify(users))
-			}
-		})
-		
-		correctRequest = true
-	}
-	
-	if (urlParsed.pathname == '/api/getDefaultProducts')
-	{
-		if (mongoose.connection.readyState!=1)
-		{
-			res.statusCode = 500
-			res.end('[ERROR] Database not connected')	
-		}
-		
-		var Product = require ('../models/default_product.js').defaultProduct
-		Product.find({}, function(err, products){
-			if (err)
-			{
-				res.statusCode = 500
-				res.end('[ERROR] Server error')	
-			}
-			else
-			{
-				res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin':'*'})
-				res.end(JSON.stringify(products))
-			}
-		})
-		
-		correctRequest = true
-	}
-	
-	if (correctRequest == false)
-	{
-		res.statusCode = 404
-		res.end('[ERROR] Incorrect request. ' + incorrectRequestReason)	
 	}
 })
 

@@ -1,4 +1,4 @@
-console.log(Date.now() + ' [User model] User model module activated ')
+console.log('[User model] User model module activated ')
 
 var crypto   = require('crypto')
 var mongoose = require('../libs/mongoose'), Schema = mongoose.Schema
@@ -19,6 +19,10 @@ var schema = new Schema({
 	{
 		type : String,
 		required: true
+	},
+	token:
+	{
+		type : String
 	},
 	created:
 	{
@@ -64,8 +68,15 @@ var schema = new Schema({
 	}
 })
 
-schema.methods.encryptPassword = function(password){
+schema.methods.encryptPassword = function(password)
+{
 	return crypto.createHmac('sha1', this.salt).update(password).digest('hex')
+}
+
+schema.methods.generateToken = function()
+{
+	this.token = crypto.randomBytes(64).toString('hex')
+	return
 }
 
 schema.virtual('password')
