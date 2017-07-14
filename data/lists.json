@@ -1,0 +1,48 @@
+[
+	{
+		"id"   : "list_id_001",
+		"name" : "Тестовый список 1",
+		"users":
+		[
+			{
+				"email" : "1@1.ru",
+				"owner" : false
+			}
+		],
+		"entries":
+		[
+			{
+				"product_id" : "id_bread",
+				"from_user"  : "1@1.ru",
+				"comment"    : "1 item"
+			}
+		]
+	},
+	{
+		"id"   : "list_id_002",
+		"name" : "Тестовый список 1",
+		"users":
+		[
+			{
+				"email" : "1@1.ru",
+				"owner" : true
+			},
+			{
+				"email" : "2@2.ru"
+			}
+		],
+		"entries":
+		[
+			{
+				"product_id" : "id_bread",
+				"from_user"  : "1@1.ru",
+				"comment"    : "1 item"
+			},
+			{
+				"product_id" : "id_bread",
+				"from_user"  : "1@2.ru",
+				"comment"    : "1 item"
+			}
+		]
+	}
+]

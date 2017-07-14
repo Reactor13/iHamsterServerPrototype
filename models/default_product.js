@@ -1,4 +1,4 @@
-console.log(Date.now() + ' [Default Product model] Module activated ')
+console.log('[Default Product model] Module activated ')
 
 var crypto   = require('crypto')
 var mongoose = require('../libs/mongoose'), Schema = mongoose.Schema

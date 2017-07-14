@@ -1,4 +1,4 @@
-console.log(Date.now() + ' [Default Category model] Module activated ')
+console.log('[Default Category model] Module activated ')
 
 var crypto   = require('crypto')
 var mongoose = require('../libs/mongoose'), Schema = mongoose.Schema

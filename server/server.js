@@ -20,17 +20,24 @@ var appServer = new http.Server(function(req,res)
 	console.log('[Server] New request from : ' + clientIP + ', host :' + clientHost + ', origin : ' + clientOrigin);
 	console.log('[Server] ... ' + req.method + ' ' + req.url)
 	
-	// Обработка POST запросов
+	/** @POST Обработка POST запросов */
 	if (req.method == 'POST')
 	{
         req.on('data', function (data) {requestPostData += data; if (requestPostData.length > 1e6) {req.connection.destroy()}});
         req.on('end',  function () 
 		{
-            requestPostData = qs.parse(requestPostData)			
+            console.log('[Server] ... requestPostData.length: ' + (requestPostData.length/1024) + " Kb")
+			requestPostData = qs.parse(requestPostData)			
 			switch (urlParsed.pathname)
 			{
 				case "/api/createUser":
-					api.createUser(requestPostData, function(err, answer) {answerServer(err, answer)})
+					api.createUser(requestPostData,   function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/getUserLists":
+					api.getUserLists(requestPostData, function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/createList":
+					api.createList(requestPostData,   function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/saveProducts":
 					api.saveProducts(requestPostData, function(err, answer) {answerServer(err, answer)})
@@ -42,7 +49,7 @@ var appServer = new http.Server(function(req,res)
         });
     }
 	
-	// Обработка GET запросов
+	/** @GET Обработка GET запросов */
 	if (req.method == 'GET')
 	{
 		switch (urlParsed.pathname)
@@ -58,7 +65,10 @@ var appServer = new http.Server(function(req,res)
 				else                               {answerServer(403,  'There is no echo message...')}
 				break;
 			case "/api/getUsers":
-				api.getUsers(function(err, answer) {answerServer(err, answer)})
+				api.getUsers(function(err, answer)    {answerServer(err, answer)})
+				break;
+			case "/api/getAllLists":
+				api.getAllLists(function(err, answer) {answerServer(err, answer)})
 				break;
 			case "/api/getDefaultProducts":
 				api.getDefaultProducts(function(err, answer) {answerServer(err, answer)})

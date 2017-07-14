@@ -1,13 +1,17 @@
 console.log('[API] API module activated')
 
-var mongoose = require('../libs/mongoose')
+var mongoose   = require('../libs/mongoose')
 
 exports.createUser         = createUser
 exports.getDefaultProducts = getDefaultProducts
 exports.getUsers           = getUsers
 exports.createUser         = createUser
 exports.saveProducts       = saveProducts
+exports.getAllLists        = getAllLists
+exports.createList         = createList
+exports.getUserLists       = getUserLists
 
+// Вывести все дефолтные продукты
 function getDefaultProducts(callback)
 {
 	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
@@ -26,6 +30,9 @@ function getDefaultProducts(callback)
 	})
 }
 
+
+// !!! Функция для отладки
+// Вывести всех пользователей в БД
 function getUsers(callback)
 {
 	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
@@ -44,6 +51,11 @@ function getUsers(callback)
 	})
 }
 
+
+/**
+ * @UserAPI
+ * Создание или обновление продуктов в словаре пользователя
+ */
 function createUser(newUser,callback)
 {
 	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
@@ -101,29 +113,61 @@ function createUser(newUser,callback)
 	})
 }
 
-function saveProducts(productsData,callback)
+
+/**
+ * @Waring Функция для отладки
+ * Вывести все списки в БД
+ */
+function getAllLists(callback)
+{
+	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
+		
+	var List = require('../models/list').List
+	List.find({}, function(err, lists)
+	{
+		if (err)
+		{
+			return callback(500, 'Error in Database')
+		}
+		else
+		{
+			return callback(null, JSON.stringify(lists))
+		}
+	})
+}
+
+
+/**
+ * @UserProductsAPI
+ * Создание или обновление продуктов в словаре пользователя
+ */
+function saveProducts(requestData,callback)
 {
 	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
 	
 	// Валидация данных JSON
-	try         {var jsonData = JSON.parse(productsData.json)}
+	try         {var jsonProductData = JSON.parse(requestData.json)}
 	catch (err) {return callback(403, 'Invalid JSON ' + err)}
 	
 	// Валидация наличия токета
-	if (!productsData.token) return callback(403, 'User token is require')
+	if (!requestData.token) return callback(403, 'User token is require')
 	
+	console.log(' ')
+	console.log('[API] saveProducts function')
+	console.log('[API] ... User token:'    + requestData.token)
+
 	var User = require('../models/user').User
-	User.findOne({'token': productsData.token }, function(err, user)
+	User.findOne({'token': requestData.token }, function(err, user)
 	{
 		if (err) {return callback(500, 'Error in Database')}
 		else
 		{
 			if (user)
 			{
-				user.saveProducts(jsonData, function(err, results)
+				user.saveProducts(jsonProductData, function(err, results)
 				{
-					console.log('[API] ... Products saved')
-					var answer = {status: 'Products saved', create: results.productsCreated, update: results.productsUpdated, total: results.totalProducts}
+					console.log('[API] saveProductsProducts function completed')
+					var answer = {"status": 'Products saved', "results": results}
 					return callback(null, JSON.stringify(answer))
 				})			
 			}
@@ -135,6 +179,135 @@ function saveProducts(productsData,callback)
 		}
 	})
 }
+
+
+/** 
+ * @ListAPI
+ * Функция создает новый список в БД 
+ */
+function createList(requestData,callback)
+{
+	// Проверка соединения с БД
+	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
+	
+	// Валидация наличия токета
+	if (!requestData.token) return callback(403, 'User token is require')
+	
+	// Валидация наличия имени списка
+	if (!requestData.name)             return callback(403, 'List nane is require')
+	if (requestData.name.length > 255) return callback(403, 'List nane is too long')
+		
+	// Валидация наличия id списка
+	if (!requestData.id)               return callback(403, 'List id is require')
+	if (requestData.id.length > 255)   return callback(403, 'List id is too long')
+	
+	console.log(' ')
+	console.log('[API] createList function')
+	
+	var User = require('../models/user').User
+	User.findOne({'token': requestData.token }, function(err, user)
+	{
+		if (err) {return callback(500, 'Error in Database')}
+		else
+		{
+			if (user)
+			{
+				var List = require('../models/list').List
+				List.findOne({'id': requestData.id }, function(err, list)
+				{
+					if (err) {return callback(500, 'Error in Database')}
+					else
+					{
+						if (list)
+						{
+							console.log('[API] ... List with this ID already exists')
+							return callback(403, 'List with this ID already exists')
+						}
+						else
+						{
+							list            = new List()
+							list.id         = requestData.id
+							list.name       = requestData.name
+							list.users.push ({"email":user.email, owner:true})
+							list.save(function(err, list, affected)
+							{
+								if (err) {return callback(500, 'Database error during list creation')}
+								else
+								{
+									console.log('[API] createList function completed')
+									var answer = {"status": 'List created', "list":list}
+									return callback(null, JSON.stringify(answer))	
+								}
+							})
+						}
+					}
+				})
+			}
+			else				
+			{
+				console.log('[API] ... User with this token not found')
+				return callback(403, 'User with this token not found')
+			}
+		}
+	})
+}
+
+
+/**
+ * @ListAPI
+ * Вывести списки, в которых участвует пользователь
+ */
+function getUserLists(requestData,callback)
+{
+	// Проверка соединения с БД
+	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
+	
+	// Валидация наличия токета
+	if (!requestData.token) return callback(403, 'User token is require')
+		
+	console.log(' ')
+	console.log('[API] getUserLists function')
+	
+	var User = require('../models/user').User
+	User.findOne({'token': requestData.token }, function(err, user)
+	{
+		if (err) {return callback(500, 'Error in Database')}
+		else
+		{
+			if (user)
+			{
+				var List = require('../models/list').List
+				List.find({'users.email': user.email }, function(err, lists)
+				{
+					if (err) {return callback(500, 'Error in Database')}
+					else
+					{
+						console.log('[API] getUserLists function completed')
+						var listsFilteredArr = new Array()
+						var isListOwner      = false
+						lists.forEach(function(list, i, arr)
+						{
+							isListOwner = false
+							list.users.forEach(function(listUser, i, arr)
+							{
+								if (listUser.email==user.email) {isListOwner = true}
+							})
+							listsFilteredArr.push ( {"id":list.id, "name":list.name, "owner":isListOwner} )
+						})
+						var answer = {"status": 'List search completed', "lists": listsFilteredArr}
+						return callback(null, JSON.stringify(answer))	
+					}
+				})
+			}
+			else
+			{
+				console.log('[API] ... User with this token not found')
+				return callback(403, 'User with this token not found')
+			}
+		}
+	})
+}
+
 
 function validateEmail(email)
 {

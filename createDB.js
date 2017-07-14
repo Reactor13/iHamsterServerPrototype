@@ -3,6 +3,7 @@
 var fs              = require('fs')
 var async           = require ('async')
 var mongoose        = require ('./libs/mongoose')
+var List            = require ('./models/list.js').User
 var User            = require ('./models/user.js').User
 var defaultProduct  = require ('./models/default_product.js').defaultProduct
 var defaultCategory = require ('./models/default_category.js').defaultCategory
@@ -13,7 +14,8 @@ async.series([
 	requireModels,
 	createUsers,
 	createCategories,
-	createProducts
+	createProducts,
+	createLists
 ], function(err) {
 	if (err)
 	{
@@ -38,6 +40,7 @@ function dropDatabase(callback){
 }
 
 function requireModels(callback){
+	require ('./models/list.js')
 	require ('./models/user.js')
 	require ('./models/default_product.js')
 	
@@ -81,5 +84,15 @@ function createProducts(callback) {
 	async.each(products, function(productData, callback){
 		var product = new mongoose.models.defaultProduct(productData)
 		product.save(callback)
+	},callback)
+}
+
+function createLists(callback) {
+	
+	lists = require('./data/lists.json')
+	
+	async.each(lists, function(listData, callback){
+		var list = new mongoose.models.List(listData)
+		list.save(callback)
 	},callback)
 }
