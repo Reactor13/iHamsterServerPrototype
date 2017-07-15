@@ -55,7 +55,8 @@ var schema = new Schema({
 		}],
 		categories:
 		[{
-			id: {type: String},
+			id:     {type: String},
+			color:  {type: String},
 			name:
 			{
 				ru: {type: String},
@@ -79,10 +80,20 @@ schema.methods.generateToken = function()
 	return
 }
 
+schema.methods.getToken = function()
+{
+	if (this.token === undefined)
+	{
+		this.generateToken()
+		this.save()
+	}
+	return this.token 
+}
+
+
+/** @saveProducts - cохраняет или обновляет продукты в словаре пользователя */
 schema.methods.saveProducts = function(productsData,callback)
 {
-	var productsCreated = 0
-	var productsUpdated = 0
 	var updateIndex     = 0
 	var keyIndex        = 0
 	var results         = new Array()
@@ -124,6 +135,46 @@ schema.methods.saveProducts = function(productsData,callback)
 	return callback(null, results)
 }
 
+
+/** @saveCategories - cохраняет или обновляет категории в словаре пользователя */
+schema.methods.saveCategories = function(categoriesData,callback)
+{
+	var updateIndex = 0
+	var keyIndex    = 0
+	var results     = new Array()
+	
+	categoriesData.forEach(function(newCategory, i, arr)
+	{
+		if (newCategory.hasOwnProperty('id'))
+		{
+			console.log( "[USER] --> " + i + ": " + JSON.stringify(newCategory.id) + " valid")
+			updateIndex = this.dictionary.categories.findIndex(function (category, index, arr)	{return category.id == this}, newCategory.id)
+			
+			if (updateIndex != -1)
+			{
+				if (newCategory.hasOwnProperty('name'))
+				{
+					for (keyIndex in newCategory.name) {this.dictionary.categories[updateIndex].name[keyIndex] = newCategory.name[keyIndex]}
+				}
+				results.push ({"category":newCategory.id,"status":"updated"})
+			}
+			else
+			{
+				this.dictionary.categories.push (newCategory)
+				results.push ({"category":newCategory.id,"status":"saved"})
+			}
+		}
+		else
+		{
+			results.push ({"category":newCategory, "status":"not valid"})
+			console.log( "[USER] --> " + i + ": " + JSON.stringify(newCategory) + " not valid");
+		}
+	}, this);
+	
+	this.save()
+	return callback(null, results)
+}
+
 schema.virtual('password')
 	.set(function(passord){
 		this._plainPassword = passord
@@ -132,7 +183,7 @@ schema.virtual('password')
 	})
 	.get(function() { return this._plainPassword })
 
-schema.methods.checkPassword = function(passord){
+schema.methods.checkPassword = function(password){
 	return this.encryptPassword(password) === this.hashedPassword
 }
 	

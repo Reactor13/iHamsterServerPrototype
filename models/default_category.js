@@ -5,6 +5,7 @@ var mongoose = require('../libs/mongoose'), Schema = mongoose.Schema
 
 var schema = new Schema({
 	id:     {type: String},
+	color:  {type: String},
 	name:
 	{
 		ru: {type: String},

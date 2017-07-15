@@ -6,12 +6,15 @@ exports.createUser         = createUser
 exports.getDefaultProducts = getDefaultProducts
 exports.getUsers           = getUsers
 exports.createUser         = createUser
+exports.getUserToken       = getUserToken
 exports.saveProducts       = saveProducts
-exports.getAllLists        = getAllLists
-exports.createList         = createList
-exports.getUserLists       = getUserLists
+exports.saveCategories     = saveCategories
 
-// Вывести все дефолтные продукты
+
+/**
+ * @DefaultAPI
+ * Вывести все дефолтные продукты
+ */
 function getDefaultProducts(callback)
 {
 	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
@@ -31,8 +34,11 @@ function getDefaultProducts(callback)
 }
 
 
-// !!! Функция для отладки
-// Вывести всех пользователей в БД
+/**
+ * @UserAPI
+ * @Waring Функция для отладки
+ * Вывести всех пользователей в БД
+ */
 function getUsers(callback)
 {
 	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
@@ -54,7 +60,7 @@ function getUsers(callback)
 
 /**
  * @UserAPI
- * Создание или обновление продуктов в словаре пользователя
+ * @createUser - cоздание нового пользователя
  */
 function createUser(newUser,callback)
 {
@@ -67,12 +73,13 @@ function createUser(newUser,callback)
 	
 	// Валидация пароля
 	if (!newUser.password) 			                      return callback(403, 'Password is require')
-	if (newUser.password.length < 3)                      return callback(403, 'Password is to short')
-	if (newUser.password.length > 25)                     return callback(403, 'Password is to long')
+	if (newUser.password.length < 3)                      return callback(403, 'Password is too short')
+	if (newUser.password.length > 50)                     return callback(403, 'Password is too long')
 	if (!newUser.password.match( /^[-0-9a-zA-Z_]{3,}$/) ) return callback(403, 'Password contain unacceptable symbols')
 		
 	// Валидация email
 	if (!newUser.email) 			                      return callback(403, 'Email is require')
+	if (newUser.email.length > 1024)                      return callback(403, 'Email is too long')
 	if (!validateEmail(newUser.email))                    return callback(403, 'Email is not valid')
 
 	console.log('[API] ... Validation completed')
@@ -115,23 +122,45 @@ function createUser(newUser,callback)
 
 
 /**
- * @Waring Функция для отладки
- * Вывести все списки в БД
+ * @UserAPI 
+ * @getUserToken - возвращает токен для пользователя. Если токена нет, то он будет создан.
  */
-function getAllLists(callback)
+function getUserToken(requestData,callback)
 {
-	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
-		
-	var List = require('../models/list').List
-	List.find({}, function(err, lists)
+	if (mongoose.connection.readyState!=1)  return callback(500, 'Database not connected')
+	
+	// Валидация наличия email
+	if (!requestData.email)                 return callback(403, 'User email is require')
+	if (requestData.email.length > 1024)    return callback(403, 'Email is too long')	
+
+	// Валидация наличия пароля
+	if (!requestData.password)              return callback(403, 'User password is require')
+	if (requestData.password.length > 1024) return callback(403, 'Password is too long')	
+	
+	var User = require('../models/user').User
+	User.findOne({'email': requestData.email}, function(err, user)
 	{
-		if (err)
-		{
-			return callback(500, 'Error in Database')
-		}
+		if (err) {return callback(500, 'Error in Database')}
 		else
 		{
-			return callback(null, JSON.stringify(lists))
+			if (user)
+			{
+				if (user.checkPassword(requestData.password))
+				{
+					var answer = {"status" : "OK", "userToken": user.getToken()}
+					return callback(null, JSON.stringify(answer))
+				}
+				else
+				{
+					console.log('[API] ... Password incorrect')
+					return callback(403, 'Password incorrect')
+				}
+			}
+			else				
+			{
+				console.log('[API] ... User not found')
+				return callback(403, 'User not found')
+			}
 		}
 	})
 }
@@ -139,7 +168,7 @@ function getAllLists(callback)
 
 /**
  * @UserProductsAPI
- * Создание или обновление продуктов в словаре пользователя
+ * @saveProducts - cоздание или обновление продуктов в словаре пользователя
  */
 function saveProducts(requestData,callback)
 {
@@ -181,9 +210,90 @@ function saveProducts(requestData,callback)
 }
 
 
+/**
+ * @UserProductsAPI
+ * @saveCategories - cоздание или обновление категорий в словаре пользователя
+ */
+function saveCategories(requestData,callback)
+{
+	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
+	
+	// Валидация данных JSON
+	try         {var jsonCategoriesData = JSON.parse(requestData.json)}
+	catch (err) {return callback(403, 'Invalid JSON ' + err)}
+	
+	// Валидация наличия токета
+	if (!requestData.token) return callback(403, 'User token is require')
+	
+	console.log(' ')
+	console.log('[API] saveCategories function')
+	console.log('[API] ... User token:'    + requestData.token)
+
+	var User = require('../models/user').User
+	User.findOne({'token': requestData.token }, function(err, user)
+	{
+		if (err) {return callback(500, 'Error in Database')}
+		else
+		{
+			if (user)
+			{
+				user.saveCategories(jsonCategoriesData, function(err, results)
+				{
+					console.log('[API] saveCategories function completed')
+					var answer = {"status": 'Categories saved', "results": results}
+					return callback(null, JSON.stringify(answer))
+				})			
+			}
+			else				
+			{
+				console.log('[API] ... User with this token not found')
+				return callback(403, 'User with this token not found')
+			}
+		}
+	})
+}
+
+
+/**
+ *    @ListAPI
+ * 01 @getAllLists  - вывести все списки в БД
+ * 02 @createList   - функция создает новый список в БД 
+ * 03 @getUserLists - вывести списки, в которых участвует пользователь
+ */
+ 
+ 
+/** @ListAPI экспорт функций */      
+ exports.createList   = createList
+ exports.getAllLists  = getAllLists
+ exports.getUserLists = getUserLists 
+
+
+/**
+ * @Waring Функция для отладки
+ * @getAllLists - вывести все списки в БД
+ */
+function getAllLists(callback)
+{
+	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
+		
+	var List = require('../models/list').List
+	List.find({}, function(err, lists)
+	{
+		if (err)
+		{
+			return callback(500, 'Error in Database')
+		}
+		else
+		{
+			return callback(null, JSON.stringify(lists))
+		}
+	})
+}
+
+
 /** 
  * @ListAPI
- * Функция создает новый список в БД 
+ * @createList - функция создает новый список в БД 
  */
 function createList(requestData,callback)
 {

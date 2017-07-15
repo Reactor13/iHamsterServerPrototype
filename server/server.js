@@ -33,6 +33,9 @@ var appServer = new http.Server(function(req,res)
 				case "/api/createUser":
 					api.createUser(requestPostData,   function(err, answer) {answerServer(err, answer)})
 					break;
+				case "/api/getUserToken":
+					api.getUserToken(requestPostData, function(err, answer) {answerServer(err, answer)})
+					break;
 				case "/api/getUserLists":
 					api.getUserLists(requestPostData, function(err, answer) {answerServer(err, answer)})
 					break;
@@ -41,6 +44,9 @@ var appServer = new http.Server(function(req,res)
 					break;
 				case "/api/saveProducts":
 					api.saveProducts(requestPostData, function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/saveCategories":
+					api.saveCategories(requestPostData, function(err, answer) {answerServer(err, answer)})
 					break;
 				default:
 					answerServer(404,'[ERROR] Incorrect request')
@@ -98,13 +104,13 @@ var appServer = new http.Server(function(req,res)
 			switch (contentType)
 			{
 				case "text":
-					headers = {'Content-Type': 'text/html; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
+					headers = {'Content-Type': 'text/plain; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
 					break;
 				default:
 					headers = {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
 					break;
 			}
-		
+			
 			res.writeHead(200, headers)
 			res.end(answer)
 		}
