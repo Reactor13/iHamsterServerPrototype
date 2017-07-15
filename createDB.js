@@ -49,12 +49,9 @@ function requireModels(callback){
 	}, callback)
 }
 
-function createUsers(callback) {
-	var users = [
-		{email: '1@1.ry', password : '12345', dictionary: {products:[{id:"test",name:{ru:"тест"}}]} },
-		{email: '2@2.ry', password : '12345'},
-		{email: '3@3.ry', password : '12345'},
-	]
+function createUsers(callback)
+ {
+	users = require('./data/users.json')
 	
 	async.each(users, function(userData, callback){
 		var user = new mongoose.models.User(userData)

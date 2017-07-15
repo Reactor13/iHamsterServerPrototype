@@ -29,44 +29,42 @@ var schema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	dictionary:
-	{
-		products:
-		[{
-			id: {type: String},
-			name:
-			{
-				ru: {type: String},
-				en: {type: String},
-				de: {type: String},
-				fr: {type: String},
-				es: {type: String}
-			},
-			price:
-			{
-				rus: {type: Number},
-				gbr: {type: Number},
-				usa: {type: Number},
-				fra: {type: Number},
-				esp: {type: Number},
-				bra: {type: Number},
-				blr: {type: Number}
-			}
-		}],
-		categories:
-		[{
-			id:     {type: String},
-			color:  {type: String},
-			name:
-			{
-				ru: {type: String},
-				en: {type: String},
-				de: {type: String},
-				fr: {type: String},
-				es: {type: String}
-			}
-		}]
-	}
+	products:
+	[{
+		id:        {type: String},
+		category : {type: String},
+		name:
+		{
+			ru: {type: String},
+			en: {type: String},
+			de: {type: String},
+			fr: {type: String},
+			es: {type: String}
+		},
+		price:
+		{
+			rus: {type: Number},
+			gbr: {type: Number},
+			usa: {type: Number},
+			fra: {type: Number},
+			esp: {type: Number},
+			bra: {type: Number},
+			blr: {type: Number}
+		}
+	}],
+	categories:
+	[{
+		id:     {type: String},
+		color:  {type: String},
+		name:
+		{
+			ru: {type: String},
+			en: {type: String},
+			de: {type: String},
+			fr: {type: String},
+			es: {type: String}
+		}
+	}]
 })
 
 schema.methods.encryptPassword = function(password)
@@ -103,23 +101,23 @@ schema.methods.saveProducts = function(productsData,callback)
 		if (newProduct.hasOwnProperty('id'))
 		{
 			console.log( "[USER] --> " + i + ": " + JSON.stringify(newProduct.id) + " valid")
-			updateIndex = this.dictionary.products.findIndex(function (product, index, arr)	{return product.id == this}, newProduct.id)
+			updateIndex = this.products.findIndex(function (product, index, arr) {return product.id == this}, newProduct.id)
 			
 			if (updateIndex != -1)
 			{
 				if (newProduct.hasOwnProperty('name'))
 				{
-					for (keyIndex in newProduct.name) {this.dictionary.products[updateIndex].name[keyIndex] = newProduct.name[keyIndex]}
+					for (keyIndex in newProduct.name) {this.products[updateIndex].name[keyIndex] = newProduct.name[keyIndex]}
 				}
 				if (newProduct.hasOwnProperty('price'))
 				{
-					for (keyIndex in newProduct.price) {this.dictionary.products[updateIndex].price[keyIndex] = newProduct.price[keyIndex]}
+					for (keyIndex in newProduct.price) {this.products[updateIndex].price[keyIndex] = newProduct.price[keyIndex]}
 				}
 				results.push ({"product":newProduct.id,"status":"updated"})
 			}
 			else
 			{
-				this.dictionary.products.push (newProduct)
+				this.products.push (newProduct)
 				results.push ({"product":newProduct.id,"status":"saved"})
 			}
 		}
@@ -148,19 +146,19 @@ schema.methods.saveCategories = function(categoriesData,callback)
 		if (newCategory.hasOwnProperty('id'))
 		{
 			console.log( "[USER] --> " + i + ": " + JSON.stringify(newCategory.id) + " valid")
-			updateIndex = this.dictionary.categories.findIndex(function (category, index, arr)	{return category.id == this}, newCategory.id)
+			updateIndex = this.categories.findIndex(function (category, index, arr)	{return category.id == this}, newCategory.id)
 			
 			if (updateIndex != -1)
 			{
 				if (newCategory.hasOwnProperty('name'))
 				{
-					for (keyIndex in newCategory.name) {this.dictionary.categories[updateIndex].name[keyIndex] = newCategory.name[keyIndex]}
+					for (keyIndex in newCategory.name) {this.categories[updateIndex].name[keyIndex] = newCategory.name[keyIndex]}
 				}
 				results.push ({"category":newCategory.id,"status":"updated"})
 			}
 			else
 			{
-				this.dictionary.categories.push (newCategory)
+				this.categories.push (newCategory)
 				results.push ({"category":newCategory.id,"status":"saved"})
 			}
 		}

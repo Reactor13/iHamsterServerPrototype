@@ -1,0 +1,116 @@
+﻿[
+	{
+		"email": "1@1.ru",
+		"password": "12345",
+		"products": 
+		[
+			{
+				"id": "id_bread_001",
+				"category": "id_bakery_001",
+				"name":
+				{
+					"ru": "Хлеб"
+				}
+			},
+			{
+				"id": "id_milk_001",
+				"category" : "id_dairy_001",
+				"name":
+				{
+					"ru": "Молоко"
+				}
+			},
+			{
+				"id": "id_icecream_001",
+				"category" : "id_dairy_001",
+				"name":
+				{
+					"ru": "Мороженное",
+					"en": "Icecream"
+				}
+			},
+			{
+				"id": "id_hydgogen_001",
+				"name":
+				{
+					"ru": "Водород"
+				}
+			}
+		],
+		"categories":
+		[
+			{
+				"id": "id_bakery_001",
+				"name":
+				{
+					"ru": "Хлебобулочный отдел 001"
+				}
+			},
+			{
+				"id": "id_dairy_001",
+				"name":
+				{
+					"ru": "Молочный отдел 001"
+				}
+			}
+		]
+	},
+	{
+		"email": "2@2.ru",
+		"password": "12345",
+		"products": 
+		[
+			{
+				"id": "id_butter_002",
+				"category": "id_dairy_002",
+				"name":
+				{
+					"ru": "Масло"
+				}
+			},
+			{
+				"id": "id_pork_002",
+				"category" : "id_meat_section_002",
+				"name":
+				{
+					"ru": "Свинина"
+				}
+			},
+			{
+				"id": "id_helium_002",
+				"name":
+				{
+					"ru": "Гелий"
+				}
+			}
+		],
+		"categories":
+		[
+			{
+				"id": "id_bakery_002",
+				"name":
+				{
+					"ru": "Хлебобулочный отдел 002"
+				}
+			},
+			{
+				"id": "id_meat_section_002",
+				"name":
+				{
+					"ru": "Мясной отдел 002"
+				}
+			},
+			{
+				"id": "id_dairy_002",
+				"name":
+				{
+					"ru": "Молочный отдел 002"
+				}
+			}
+		]
+	}, 
+	{
+		"email": "3@3.ru",
+		"password": "12345"
+	}
+]

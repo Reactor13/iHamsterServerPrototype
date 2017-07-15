@@ -22,9 +22,11 @@ var schema = new Schema
 	}],
 	entries:
 	[{
+		entry_id   : {type: String},
 		product_id : {type: String},
 		from_user  : {type: String},
-		comment    : {type: String}
+		comment    : {type: String},
+		purchased  : {type: Boolean, default: false}		
 	}]
 })
 

@@ -3,9 +3,11 @@ console.log('[Server] Server module activated')
 var fs           = require('fs');
 var http         = require('http');
 var url          = require('url');
+var os           = require('os');
 var qs           = require('querystring');
 var mongoose     = require('../libs/mongoose'), Schema = mongoose.Schema
 var api          = require('../api/api')
+var api_list     = require('../api/api_list')
 var serverConfig = require('../config/server.json');
 
 var appServer = new http.Server(function(req,res)
@@ -17,8 +19,10 @@ var appServer = new http.Server(function(req,res)
 	var requestPostData        = '';
 	
 	console.log(' ')
+	console.log('[Server] Free Mem : ' + (os.freemem()/1204/1024).toFixed(2) + ', Total Mem: ' + (os.totalmem()/1204/1024).toFixed(2))
 	console.log('[Server] New request from : ' + clientIP + ', host :' + clientHost + ', origin : ' + clientOrigin);
 	console.log('[Server] ... ' + req.method + ' ' + req.url)
+	
 	
 	/** @POST Обработка POST запросов */
 	if (req.method == 'POST')
@@ -31,22 +35,25 @@ var appServer = new http.Server(function(req,res)
 			switch (urlParsed.pathname)
 			{
 				case "/api/createUser":
-					api.createUser(requestPostData,   function(err, answer) {answerServer(err, answer)})
+					api.createUser(requestPostData,          function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/getUserToken":
-					api.getUserToken(requestPostData, function(err, answer) {answerServer(err, answer)})
+					api.getUserToken(requestPostData,        function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/getUserLists":
-					api.getUserLists(requestPostData, function(err, answer) {answerServer(err, answer)})
+					api_list.getUserLists(requestPostData,   function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/getListEntries":
+					api_list.getListEntries(requestPostData, function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/createList":
-					api.createList(requestPostData,   function(err, answer) {answerServer(err, answer)})
+					api_list.createList(requestPostData,     function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/saveProducts":
-					api.saveProducts(requestPostData, function(err, answer) {answerServer(err, answer)})
+					api.saveProducts(requestPostData,        function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/saveCategories":
-					api.saveCategories(requestPostData, function(err, answer) {answerServer(err, answer)})
+					api.saveCategories(requestPostData,      function(err, answer) {answerServer(err, answer)})
 					break;
 				default:
 					answerServer(404,'[ERROR] Incorrect request')
@@ -54,6 +61,7 @@ var appServer = new http.Server(function(req,res)
 			}
         });
     }
+	
 	
 	/** @GET Обработка GET запросов */
 	if (req.method == 'GET')
@@ -74,7 +82,7 @@ var appServer = new http.Server(function(req,res)
 				api.getUsers(function(err, answer)    {answerServer(err, answer)})
 				break;
 			case "/api/getAllLists":
-				api.getAllLists(function(err, answer) {answerServer(err, answer)})
+				api_list.getAllLists(function(err, answer) {answerServer(err, answer)})
 				break;
 			case "/api/getDefaultProducts":
 				api.getDefaultProducts(function(err, answer) {answerServer(err, answer)})
@@ -85,7 +93,8 @@ var appServer = new http.Server(function(req,res)
 		}
 	}
 	
-	// Функция возвращает ответ сервер
+	
+	/** @answerServer - ункция возвращает ответ сервер */
 	function answerServer(err, answer, contentType)
 	{
 		var headers

@@ -1,26 +1,7 @@
 [
 	{
 		"id"   : "list_id_001",
-		"name" : "Тестовый список 1",
-		"users":
-		[
-			{
-				"email" : "1@1.ru",
-				"owner" : false
-			}
-		],
-		"entries":
-		[
-			{
-				"product_id" : "id_bread",
-				"from_user"  : "1@1.ru",
-				"comment"    : "1 item"
-			}
-		]
-	},
-	{
-		"id"   : "list_id_002",
-		"name" : "Тестовый список 1",
+		"name" : "Тестовый список 001",
 		"users":
 		[
 			{
@@ -28,21 +9,92 @@
 				"owner" : true
 			},
 			{
-				"email" : "2@2.ru"
+				"email" : "2@2.ru",
+				"owner" : false
+			}			
+		],
+		"entries":
+		[
+			{
+				"entry_id"   : "entry_001_0001",
+				"product_id" : "id_bread_001",
+				"from_user"  : "1@1.ru",
+				"comment"    : "1 item"
+			},
+			{
+				"entry_id"   : "entry_001_0002",
+				"product_id" : "id_milk_001",
+				"from_user"  : "1@1.ru",
+				"comment"    : "1 item"
+			},
+			{
+				"entry_id"   : "entry_001_0003",
+				"product_id" : "id_bread_001",
+				"from_user"  : "1@1.ru",
+				"comment"    : "1 item"
+			},
+			{
+				"entry_id"   : "entry_001_0004",
+				"product_id" : "id_bread_001XXX",
+				"from_user"  : "1@1.ru",
+				"comment"    : "1 item"
+			},
+			{
+				"entry_id"   : "entry_001_0005",
+				"product_id" : "id_icecream_001",
+				"from_user"  : "1@1.ru",
+				"comment"    : "2 item"
+			},
+			{
+				"entry_id"   : "entry_001_0006",
+				"product_id" : "id_pork_002",
+				"from_user"  : "2@2.ru",
+				"comment"    : "1 item"
+			}
+		]
+	},
+	{
+		"id"   : "list_id_002",
+		"name" : "Тестовый список 002",
+		"users":
+		[
+			{
+				"email" : "1@1.ru"		
+			},
+			{
+				"email" : "2@2.ru",
+				"owner" : true
 			}
 		],
 		"entries":
 		[
 			{
+				"entry_id"   : "entry_002_0001",
 				"product_id" : "id_bread",
 				"from_user"  : "1@1.ru",
 				"comment"    : "1 item"
 			},
 			{
+				"entry_id"   : "entry_002_0002",
 				"product_id" : "id_bread",
-				"from_user"  : "1@2.ru",
+				"from_user"  : "2@2.ru",
 				"comment"    : "1 item"
 			}
+		]
+	},
+	{
+		"id"   : "list_id_003",
+		"name" : "Тестовый список 003",
+		"users":
+		[
+			{
+				"email" : "3@3.ru",
+				"owner" : true
+			}
+		],
+		"entries":
+		[
+		
 		]
 	}
 ]
