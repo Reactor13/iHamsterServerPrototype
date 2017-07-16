@@ -32,7 +32,7 @@ function findUsers(callback)
 {
 	var User = require('./models/user').User
 	
-	User.find({'dictionary.products.name.ru':'батон'}, function(err, user)
+	User.find({'products.name.ru':'Хлеб'}, function(err, user)
 	{
 		console.log (JSON.stringify(user))
 		callback(null)

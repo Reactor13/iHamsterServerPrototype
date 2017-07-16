@@ -31,7 +31,7 @@ var schema = new Schema({
 	},
 	products:
 	[{
-		id:        {type: String},
+		id:        {type: String, required: true},
 		category : {type: String},
 		name:
 		{
@@ -54,7 +54,7 @@ var schema = new Schema({
 	}],
 	categories:
 	[{
-		id:     {type: String},
+		id:     {type: String, required: true},
 		color:  {type: String},
 		name:
 		{

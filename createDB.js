@@ -1,6 +1,10 @@
-// Скрипт для создания новой базы данных
 
-var fs              = require('fs')
+/** 
+ * Скрипт для создания новой базы данных 
+ * @WARING Выполнение приведет к полной очистке базы и созданию новых предустановленных данных
+ */
+
+var fs              = require ('fs')
 var async           = require ('async')
 var mongoose        = require ('./libs/mongoose')
 var List            = require ('./models/list.js').User

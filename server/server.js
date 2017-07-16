@@ -8,6 +8,7 @@ var qs           = require('querystring');
 var mongoose     = require('../libs/mongoose'), Schema = mongoose.Schema
 var api          = require('../api/api')
 var api_list     = require('../api/api_list')
+var api_user     = require('../api/api_user')
 var serverConfig = require('../config/server.json');
 
 var appServer = new http.Server(function(req,res)
@@ -35,31 +36,37 @@ var appServer = new http.Server(function(req,res)
 			switch (urlParsed.pathname)
 			{
 				case "/api/createUser":
-					api.createUser(requestPostData,            function(err, answer) {answerServer(err, answer)})
+					api_user.createUser(requestPostData,            function(err, answer) {answerServer(err, answer)})
 					break; 
 				case "/api/getUserToken":
-					api.getUserToken(requestPostData,          function(err, answer) {answerServer(err, answer)})
+					api_user.getUserToken(requestPostData,          function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/getUserLists":
-					api_list.getUserLists(requestPostData,     function(err, answer) {answerServer(err, answer)})
+					api_list.getUserLists(requestPostData,          function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/getListEntries":
-					api_list.getListEntries(requestPostData,   function(err, answer) {answerServer(err, answer)})
+					api_list.getListEntries(requestPostData,        function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/createList":
-					api_list.createList(requestPostData,       function(err, answer) {answerServer(err, answer)})
+					api_list.createList(requestPostData,            function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/saveList":
-					api_list.saveList(requestPostData,         function(err, answer) {answerServer(err, answer)})
+					api_list.saveList(requestPostData,              function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/clearListEntries":
-					api_list.clearListEntries(requestPostData, function(err, answer) {answerServer(err, answer)})
+					api_list.clearListEntries(requestPostData,      function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/saveProducts":
-					api.saveProducts(requestPostData,          function(err, answer) {answerServer(err, answer)})
+					api_user.saveProducts(requestPostData,          function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/saveCategories":
-					api.saveCategories(requestPostData,        function(err, answer) {answerServer(err, answer)})
+					api_user.saveCategories(requestPostData,        function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/getUserProducts":
+					api_user.getUserProducts(requestPostData,       function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/getUserCategories":
+					api_user.getUserCategories(requestPostData,     function(err, answer) {answerServer(err, answer)})
 					break;
 				default:
 					answerServer(404,'[ERROR] Incorrect request')
@@ -88,7 +95,7 @@ var appServer = new http.Server(function(req,res)
 				api.getUsers(function(err, answer)    {answerServer(err, answer)})
 				break;
 			case "/api/getAllLists":
-				api_list.getAllLists(function(err, answer) {answerServer(err, answer)})
+				api.getAllLists(function(err, answer) {answerServer(err, answer)})
 				break;
 			case "/api/getDefaultProducts":
 				api.getDefaultProducts(function(err, answer) {answerServer(err, answer)})

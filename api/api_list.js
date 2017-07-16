@@ -3,48 +3,23 @@ console.log('[API List] API module activated')
 var mongoose   = require('../libs/mongoose')
 var async      = require('async')
 
+
 /**
  *    @ListAPI
- * 01 @getAllLists      - вывести все списки в БД
- * 02 @createList       - функция создает новый список в БД 
- * 03 @getUserLists     - вывести списки, в которых участвует пользователь
- * 04 @getListEntries   - вывести полную информацию для списка
- * 05 @saveList         - сохранить продукты в список
- * 06 @clearListEntries - очистить купреленные записи в списке
+ * 01 @createList       - функция создает новый список в БД 
+ * 02 @getUserLists     - вывести списки, в которых участвует пользователь
+ * 03 @getListEntries   - вывести полную информацию для списка
+ * 04 @saveList         - сохранить продукты в список
+ * 05 @clearListEntries - очистить купреленные записи в списке
  */
  
  
 /** @ListAPI экспорт функций */      
  exports.createList       = createList
- exports.getAllLists      = getAllLists
  exports.getUserLists     = getUserLists 
  exports.getListEntries   = getListEntries 
  exports.saveList         = saveList
  exports.clearListEntries = clearListEntries
-
-
-/**
- * @ListAPI
- * @Waring Функция для отладки
- * @getAllLists - вывести все списки в БД
- */
-function getAllLists(callback)
-{
-	if (mongoose.connection.readyState!=1) {return callback(500, 'Database not connected')}
-		
-	var List = require('../models/list').List
-	List.find({}, function(err, lists)
-	{
-		if (err)
-		{
-			return callback(500, 'Error in Database')
-		}
-		else
-		{
-			return callback(null, JSON.stringify(lists))
-		}
-	})
-}
 
 
 /** 
@@ -452,7 +427,7 @@ function saveList(requestData,callback)
 			if (curListUser.email==curUser.email ) {accessGranted = true}
 		})
 		
-		if (accessGranted) {saveListData()}
+		if (accessGranted) {modifyListData()}
 		else
 		{
 			console.log('[API] ... For this user access denied to this list.')
@@ -461,30 +436,36 @@ function saveList(requestData,callback)
 	}
 	
 	
-	/** Шаг 4: сохранение записей в список */	
+	/** Шаг 4: предварительное сохранение записей в список */	
 	var answerResults = []
-	function saveListData()
+	function modifyListData()
 	{		
 		if (requestData.name !== undefined)
 		{
-			curList.name = requestData.name; curList.save()
-			answerResults.push ( {'name': requestData.name} )
+			curList.name = requestData.name; 
+			answerResults.push ( {'name': requestData.name} )			
 		}
 		if (requestData.json !== undefined)
 		{
-			curList.saveData(jsonData, function(err, results)
+			curList.saveData(jsonData,curUser.email, function(err, results)
 			{						
-				answerResults.push ( {'entries': results} )
-				sendResponse()
+				answerResults.push ( {'entries': results} )				
 			})	
-		}
-		else
-		{
-			sendResponse()
-		}
+		}		
+		saveListData()
 	}
 	
-	/** Шаг 5: Завершение функции, возвращение результатов */
+	/** Шаг 5: Сохранение данных в базу данных */
+	function saveListData()
+	{		
+		curList.save(function(err, user, affected)
+		{
+			if (err) {return callback(500, 'Database error during list data saving')}
+			else 	 {sendResponse()}
+		})		
+	}
+
+	/** Шаг 6: Завершение функции, возвращение результатов */
 	function sendResponse()
 	{
 		console.log('[API] saveList function function completed')
@@ -582,11 +563,21 @@ function clearListEntries(requestData,callback)
 		curList.clearData(jsonData, function(err, results)
 		{						
 			answerResults.push ( {'entries': results} )
-			sendResponse()
+			saveListData()
 		})			
 	}
 	
-	/** Шаг 5: Завершение функции, возвращение результатов */
+	/** Шаг 5: Сохранение данных в базу данных */
+	function saveListData()
+	{		
+		curList.save(function(err, user, affected)
+		{
+			if (err) {return callback(500, 'Database error during list data saving')}
+			else 	 {sendResponse()}
+		})		
+	}
+	
+	/** Шаг 6: Завершение функции, возвращение результатов */
 	function sendResponse()
 	{
 		console.log('[API] clearListEntries function completed')

@@ -30,13 +30,16 @@ var schema = new Schema
 	}]
 })
 
-/** @saveData - cохраняет или обновляет записи в списке */
-schema.methods.saveData = function(entriesData,callback)
+
+/** @saveData - cохраняет или обновляет записи в списке 
+ *  @initiatingUserEmail - пользователь, кто инициировал сохранение данных в списке.
+ */
+schema.methods.saveData = function(entriesData,initiatingUserEmail,callback)
 {
 	var results     = []
 	var updateIndex = 0
 	var keyIndex    = 0
-			
+	
 	if (!Array.isArray(entriesData)) {entriesData = [].concat(entriesData)}
 	entriesData.forEach(function(newEntry, i, arr)
 	{
@@ -51,8 +54,9 @@ schema.methods.saveData = function(entriesData,callback)
 			}
 			else
 			{
-				if ((newEntry.from_user !== undefined)&&(newEntry.product_id !== undefined))
+				if (newEntry.product_id !== undefined)
 				{
+					newEntry.from_user = initiatingUserEmail
 					this.entries.push (newEntry)				
 					results.push ({"entry":newEntry.entry_id,"status":"saved"})
 				}
@@ -68,7 +72,6 @@ schema.methods.saveData = function(entriesData,callback)
 		}
 	}, this)
 	
-	this.save()
 	return callback(null,results)
 }
 
@@ -102,7 +105,6 @@ schema.methods.clearData = function(entriesData,callback)
 		}
 	}, this)
 	
-	this.save()
 	return callback(null,results)
 }
 
