@@ -5,18 +5,22 @@ var async      = require('async')
 
 /**
  *    @ListAPI
- * 01 @getAllLists    - вывести все списки в БД
- * 02 @createList     - функция создает новый список в БД 
- * 03 @getUserLists   - вывести списки, в которых участвует пользователь
- * 04 @getListEntries - вывести полную информацию для списка
+ * 01 @getAllLists      - вывести все списки в БД
+ * 02 @createList       - функция создает новый список в БД 
+ * 03 @getUserLists     - вывести списки, в которых участвует пользователь
+ * 04 @getListEntries   - вывести полную информацию для списка
+ * 05 @saveList         - сохранить продукты в список
+ * 06 @clearListEntries - очистить купреленные записи в списке
  */
  
  
 /** @ListAPI экспорт функций */      
- exports.createList     = createList
- exports.getAllLists    = getAllLists
- exports.getUserLists   = getUserLists 
- exports.getListEntries = getListEntries 
+ exports.createList       = createList
+ exports.getAllLists      = getAllLists
+ exports.getUserLists     = getUserLists 
+ exports.getListEntries   = getListEntries 
+ exports.saveList         = saveList
+ exports.clearListEntries = clearListEntries
 
 
 /**
@@ -272,15 +276,23 @@ function getListEntries(requestData,callback)
 				var fields  = { 'products': {$elemMatch: { 'id':listEntriesData.product_id  }},'_id': 0,'categories':0,'email':0,'hashedPassword':0,'created':0,'salt':0,'__v':0,'token':0 } 
 				User.findOne(filter,fields,function(err, userProduct)
 				{				
-					if (userProduct.products === undefined)
+					if (userProduct)
 					{
-						products.push ({'id':listEntriesData.product_id, 'error':'product no found'})
+						if (userProduct.products === undefined)
+						{
+							products.push ({'id':listEntriesData.product_id, 'error':'product no found'})
+						}
+						else
+						{
+							products.push ({'id':userProduct.products[0].id, 'user':listEntriesData.from_user,'category':userProduct.products[0].category, 'name':userProduct.products[0].name})					
+						}				
+						callback(null)
 					}
 					else
 					{
-						products.push ({'id':userProduct.products[0].id, 'user':listEntriesData.from_user,'category':userProduct.products[0].category, 'name':userProduct.products[0].name})					
-					}				
-					callback(null)
+						products.push ({'id':listEntriesData.product_id, 'error':'user no found'})
+						callback(null)
+					}
 				})			
 			}
 			else
@@ -338,7 +350,247 @@ function getListEntries(requestData,callback)
 	function sendResponse()
 	{
 		console.log('[API] getListEntries function function completed')
-		var answer = {"status": 'List entries build completed', "entries":listEntries, "products":products, "categories":categories}
+		var answer = {"status": 'List entries build completed', "name":curList.name, "entries":listEntries, "products":products, "categories":categories}
+		return callback(null, JSON.stringify(answer))
+	}	
+}
+
+
+/**
+ * @ListAPI
+ * @saveList - сохранить продукты в список
+ * Если список не существует в базе, то он будет создан
+ */
+function saveList(requestData,callback)
+{
+	// Проверка соединения с БД
+	if (mongoose.connection.readyState!=1)   return callback(500, 'Database not connected')
+	
+	// Валидация наличия токета
+	if (!requestData.token)                  return callback(403, 'User token is require')
+	
+	// Валидация наличия id списка
+	if (!requestData.list_id)                return callback(403, 'List id is require')
+	if (requestData.list_id.length > 1024)   return callback(403, 'List id is too long')
+		
+	// Валидация имени списка при его указании
+	if (requestData.name !==undefined && requestData.name.length > 255) return callback(403, 'List name is too long')
+	
+	// Валидация данных JSON
+	if (requestData.json !== undefined)
+	{	
+		try         {var jsonData = JSON.parse(requestData.json)}
+		catch (err) {return callback(403, 'Invalid JSON ' + err)}
+	}
+	
+	var User    = require('../models/user').User
+	var List    = require('../models/list').List
+	var curUser
+	var curList
+
+	checkUser(requestData.token)
+
+	/** Шаг 1: поиск пользователя по токену */
+	function checkUser()
+	{		
+		User.findOne({'token': requestData.token }, function(err, user)
+		{
+			if (err) {return callback(500, 'Error in Database')}
+			else
+			{
+				if (user) {curUser = user; findList()}
+				else
+				{
+					console.log('[API] ... User with this token not found')
+					return callback(403, 'User with this token not found')
+				}
+			}
+		})
+	}
+	
+	/** Шаг 2: поиск списка по list_id. Если список не найден, то он будет автоматически создан */
+	function findList()
+	{
+		List.findOne({'id': requestData.list_id }, function(err, list)
+		{
+			if (err) {return callback(500, 'Error in Database')}
+			else
+			{
+				if (list) {curList = list; checkAccess()}
+				else
+				{					
+					if (!requestData.name) {return callback(403, 'For new list name is require')}
+					else
+					{					
+						list      = new List()
+						list.id   = requestData.list_id					
+						list.name = requestData.name
+						list.users.push ({"email":curUser.email, owner:true})					
+						list.save(function(err, list, affected)
+						{
+							if (err) {return callback(500, 'Database error during list creation')}
+							else
+							{
+								console.log('[API] New list created')
+								curList = list
+								checkAccess()
+							}
+						})
+					}
+				}
+			}
+		})
+	}
+	
+	/** Шаг 3: проверка, что данный пользователь учатсвует в синхронизации списка */
+	function checkAccess()
+	{
+		var accessGranted = false
+		
+		curList.users.forEach(function(curListUser, i, arr)
+		{								
+			if (curListUser.email==curUser.email ) {accessGranted = true}
+		})
+		
+		if (accessGranted) {saveListData()}
+		else
+		{
+			console.log('[API] ... For this user access denied to this list.')
+			return callback(403, 'For this user access denied to this list.')
+		}
+	}
+	
+	
+	/** Шаг 4: сохранение записей в список */	
+	var answerResults = []
+	function saveListData()
+	{		
+		if (requestData.name !== undefined)
+		{
+			curList.name = requestData.name; curList.save()
+			answerResults.push ( {'name': requestData.name} )
+		}
+		if (requestData.json !== undefined)
+		{
+			curList.saveData(jsonData, function(err, results)
+			{						
+				answerResults.push ( {'entries': results} )
+				sendResponse()
+			})	
+		}
+		else
+		{
+			sendResponse()
+		}
+	}
+	
+	/** Шаг 5: Завершение функции, возвращение результатов */
+	function sendResponse()
+	{
+		console.log('[API] saveList function function completed')
+		var answer = {"status": 'Save list Completed', "results":answerResults}
+		return callback(null, JSON.stringify(answer))
+	}	
+}
+
+/**
+ * @ListAPI
+ * @clearListEntries - очистить купреленные записи в списке
+ */
+function clearListEntries(requestData,callback)
+{
+	// Проверка соединения с БД
+	if (mongoose.connection.readyState!=1)   return callback(500, 'Database not connected')
+	
+	
+	// Валидация наличия json со списком элементов на удаление
+	try         {var jsonData = JSON.parse(requestData.json)}
+	catch (err) {return callback(403, 'Invalid JSON ' + err)}
+	
+	// Валидация наличия токета
+	if (!requestData.token)                  return callback(403, 'User token is require')
+	
+	// Валидация наличия id списка
+	if (!requestData.list_id)                return callback(403, 'List id is require')
+	if (requestData.list_id.length > 1024)   return callback(403, 'List id is too long')
+	
+	var User    = require('../models/user').User
+	var List    = require('../models/list').List
+	var curUser
+	var curList
+	
+	checkUser()
+
+	/** Шаг 1: поиск пользователя по токену */
+	function checkUser()
+	{		
+		User.findOne({'token': requestData.token }, function(err, user)
+		{
+			if (err) {return callback(500, 'Error in Database')}
+			else
+			{
+				if (user) {curUser = user; findList()}
+				else
+				{
+					console.log('[API] ... User with this token not found')
+					return callback(403, 'User with this token not found')
+				}
+			}
+		})
+	}
+	
+	/** Шаг 2: поиск списка по list_id */
+	function findList()
+	{		
+		List.findOne({'id': requestData.list_id }, function(err, list)
+		{
+			if (err) {return callback(500, 'Error in Database')}
+			else
+			{
+				if (list) {curList = list; checkAccess()}
+				else
+				{
+					console.log('[API] ... List with this ID not found')
+					return callback(403, 'List with this ID not found')
+				}
+			}
+		})
+	}
+	
+	/** Шаг 3: проверка, что данный пользователь учатсвует в синхронизации списка */
+	function checkAccess()
+	{
+		var accessGranted = false
+		
+		curList.users.forEach(function(curListUser, i, arr)
+		{								
+			if (curListUser.email==curUser.email ) {accessGranted = true}
+		})
+		
+		if (accessGranted) {clearEntries()}
+		else
+		{
+			console.log('[API] ... For this user access denied to this list.')
+			return callback(403, 'For this user access denied to this list.')
+		}
+	}
+	
+	/** Шаг 4: Очистка записей */
+	var answerResults = []
+	function clearEntries()
+	{
+		curList.clearData(jsonData, function(err, results)
+		{						
+			answerResults.push ( {'entries': results} )
+			sendResponse()
+		})			
+	}
+	
+	/** Шаг 5: Завершение функции, возвращение результатов */
+	function sendResponse()
+	{
+		console.log('[API] clearListEntries function completed')
+		var answer = {"status": 'Clear list entries completed', "results":answerResults}
 		return callback(null, JSON.stringify(answer))
 	}	
 }

@@ -94,8 +94,9 @@ schema.methods.saveProducts = function(productsData,callback)
 {
 	var updateIndex     = 0
 	var keyIndex        = 0
-	var results         = new Array()
+	var results         = []
 	
+	if (!Array.isArray(productsData)) {productsData = [].concat(productsData)}
 	productsData.forEach(function(newProduct, i, arr)
 	{
 		if (newProduct.hasOwnProperty('id'))
@@ -141,6 +142,7 @@ schema.methods.saveCategories = function(categoriesData,callback)
 	var keyIndex    = 0
 	var results     = new Array()
 	
+	if (!Array.isArray(categoriesData)) {categoriesData = [].concat(categoriesData)}
 	categoriesData.forEach(function(newCategory, i, arr)
 	{
 		if (newCategory.hasOwnProperty('id'))

@@ -35,25 +35,31 @@ var appServer = new http.Server(function(req,res)
 			switch (urlParsed.pathname)
 			{
 				case "/api/createUser":
-					api.createUser(requestPostData,          function(err, answer) {answerServer(err, answer)})
-					break;
+					api.createUser(requestPostData,            function(err, answer) {answerServer(err, answer)})
+					break; 
 				case "/api/getUserToken":
-					api.getUserToken(requestPostData,        function(err, answer) {answerServer(err, answer)})
+					api.getUserToken(requestPostData,          function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/getUserLists":
-					api_list.getUserLists(requestPostData,   function(err, answer) {answerServer(err, answer)})
+					api_list.getUserLists(requestPostData,     function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/getListEntries":
-					api_list.getListEntries(requestPostData, function(err, answer) {answerServer(err, answer)})
+					api_list.getListEntries(requestPostData,   function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/createList":
-					api_list.createList(requestPostData,     function(err, answer) {answerServer(err, answer)})
+					api_list.createList(requestPostData,       function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/saveList":
+					api_list.saveList(requestPostData,         function(err, answer) {answerServer(err, answer)})
+					break;
+				case "/api/clearListEntries":
+					api_list.clearListEntries(requestPostData, function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/saveProducts":
-					api.saveProducts(requestPostData,        function(err, answer) {answerServer(err, answer)})
+					api.saveProducts(requestPostData,          function(err, answer) {answerServer(err, answer)})
 					break;
 				case "/api/saveCategories":
-					api.saveCategories(requestPostData,      function(err, answer) {answerServer(err, answer)})
+					api.saveCategories(requestPostData,        function(err, answer) {answerServer(err, answer)})
 					break;
 				default:
 					answerServer(404,'[ERROR] Incorrect request')
